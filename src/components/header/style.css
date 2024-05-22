@@ -30,24 +30,134 @@ header .authentification {
         transition: .15s;
     }
 }
-header .authentification .signin{
+header .signin{
     background: transparent;
     border: 1px solid var(--gray-alpha-500);
 }
-header .authentification .signin:hover {
+header .signin:hover {
     background: var(--gray-alpha-200);
 }
 
-header .authentification .login{
+header .login{
     background: var(--gray-alpha-1000);
     color: var(--background-100)
 }
-header .authentification .login:hover {
+header .login:hover {
     background: var(--gray-alpha-950);
 }
-
+header .user_navigation{
+    position: relative;
+    display: flex;
+    
+    img {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+    }
+}
+header .user_info {
+    padding: 4px 20px;
+    display: flex;
+    align-items: center;
+    background: transparent;
+    border: none;
+    gap: 10px;
+}
+header .user_info:hover {
+    background: var(--gray-alpha-200);
+}
 .dropdawn_header {
+    display: block;
     position: absolute;
-    width: 300px;
+    right: 0;
+    z-index: 20;
+    min-width: 200px;
+    padding: 10px 0;
+    border-radius: 12px;
+    background-color: var(--background-300);
+    border: 1px solid var(--gray-alpha-400);
+    ul {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        width: 100%;
+    }
+    li {
+        transition: .14s;
+        width: 100%;
+        padding: 8px 12px;
+        background: transparent;
 
+        a {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--gray-alpha-900);
+        }
+        
+    }
+    li:hover {
+        background: var(--gray-alpha-200);
+        a {
+            color: var(--gray-alpha-1000);
+        }
+    }
+    button {
+        padding: 8px 12px;
+        display: flex;
+        background: transparent;
+        border: none;
+        color: var(--gray-alpha-900);
+
+    }
+    button:hover {
+        background: var(--gray-alpha-200);
+        
+        color: var(--gray-alpha-1000);
+        
+    }
+}
+.dropdawn_header.disabled {
+    display: none;
+}
+
+.dropdawn_header.open {
+    display: block;
+    animation: openDropdawn 0.3s ease-in-out forwards;
+}
+
+.dropdawn_header.close {
+    animation: closeDropdawn 0.3s ease-in-out forwards;
+}
+
+@keyframes openDropdawn {
+    from {
+        opacity: 0;
+        margin-top: 2px;
+        transform: translateY(-4px);
+        display: none;
+    }
+    to {
+        opacity: 1;
+        margin-top: 45px;
+        transform: translateY(0);
+        display: block;
+    }
+}
+
+@keyframes closeDropdawn {
+    from {
+        opacity: 1;
+        margin-top: 45px;
+        transform: translateY(0);
+        display: block;
+
+    }
+    to {
+        opacity: 0;
+        margin-top: 2px;
+        transform: translateY(-4px);
+        display: none;
+
+    }
 }

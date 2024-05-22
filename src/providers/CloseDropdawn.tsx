@@ -7,12 +7,18 @@ const CloseDropdawn:NextPage<ProvidersType> = ({children}):ReactNode => {
     const {isHeaderDropdawn, setIsHeaderDropdawn} = useDropdawn();
 
     const handleCloseDropdawn = () => {
-        if(isHeaderDropdawn == "disabled" || isHeaderDropdawn == "closed") return;
-        setIsHeaderDropdawn('closed')
+        console.log('e');
+        
+        if(isHeaderDropdawn === "disabled" || isHeaderDropdawn === "close") {
+            return;
+        };
+        setIsHeaderDropdawn('close')
     }
     return (
-    <body onClick={handleCloseDropdawn}>
-        {children}
+    <body >
+        <main onClick={handleCloseDropdawn}>
+            {children}
+        </main>
     </body>
     )
 }

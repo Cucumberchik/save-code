@@ -83,6 +83,7 @@
   --gray-alpha-950: hsla(0, 0%, 93%, 0.92);
   --gray-alpha-1000: hsla(0,0%,100%,.92);
   --background-100: #0a0a0a;
+  --background-300: #151515;
   --background-200: #000;
   --focus-border: 0 0 0 1px var(--gray-alpha-600),0px 0px 0px 4px hsla(0,0%,100%,.24);
   --focus-color: var(--blue-900);

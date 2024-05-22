@@ -7,11 +7,13 @@ import Link from "next/link"
 import useAuth from "@/zustands/auth"
 import { useDialogStatus } from "@/zustands/Dialogs"
 import {HeaderDropdawn} from "./HeaderDropdawn"
+import { useDropdawn } from "@/zustands/Dropdawns"
 
 
 const Header:NextPage = ():ReactNode => {
-    const {user, signOutUser} = useAuth()
-    const {setStatusLogin, setStatusSignin} = useDialogStatus()
+    const {user} = useAuth();
+    const {setStatusLogin, setStatusSignin} = useDialogStatus();
+    const {setIsHeaderDropdawn} = useDropdawn()
     return (
     <header className="d-f-c">
         <div className="container">
@@ -30,15 +32,15 @@ const Header:NextPage = ():ReactNode => {
                         <Typography variant="body" >Регистрация</Typography> 
                     </button>
                 </div> : 
-                <>
-                    <button className="user_navigation">
+                <div className="user_navigation">
+                    <button className="user_info" onClick={()=>setIsHeaderDropdawn('open')} >
                         <Typography variant="body">
                             {user?.displayName}
                         </Typography>
                         <img src={user?.photoURL} alt="photoURL" />
                     </button>
                     <HeaderDropdawn />
-                </>
+                </div>
             }
         </div>
     </header>
