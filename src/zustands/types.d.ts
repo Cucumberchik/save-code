@@ -13,6 +13,8 @@ interface UseAuthUser {
 interface UseDialogStatus {
     statusLogin: string,
     statusSignin: string,
+    statusTodo: string,
+    setStatusTodo: (status:string) => void,
     setStatusLogin: (status:string) => void,
     setStatusSignin: (status:string) => void
 }
@@ -20,4 +22,13 @@ interface UseDialogStatus {
 interface UseChangeDropdawn {
     isHeaderDropdawn: string,
     setIsHeaderDropdawn: (newState:string) => void
+}
+
+interface UseAppTodo {
+    user_id: number | null,
+    todo: ElementType[],
+    searching: string,
+    setSearching: (value:string) => void,
+    setUserId: (id:number) => void,
+    setTodo: (data:ElementType[]) => void
 }

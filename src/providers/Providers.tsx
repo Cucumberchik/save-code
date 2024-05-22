@@ -1,6 +1,6 @@
 import { NextPage } from "next"
 import { ReactNode } from "react"
-import { CheckUserProvider } from "./ChechUserProvider"
+import { CheckUserProvider } from "./CheckUserProvider"
 import AuthDialogProvider from "./AuthProvider"
 import CloseDropdawn from "./CloseDropdawn"
 import LoadingProvider from "./LoadingProvider"
