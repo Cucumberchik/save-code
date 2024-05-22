@@ -28,6 +28,12 @@ interface UseAppTodo {
     user_id: number | null,
     todo: ElementType[],
     searching: string,
+    language: string,
+    dropdawnLanguage: string,
+    titleTodo: string,
+    setTitleTodo: (title) => void,
+    setdropdawnLanguage: (status:string) => void,
+    setLanguage: (language:string) => void,
     setSearching: (value:string) => void,
     setUserId: (id:number) => void,
     setTodo: (data:ElementType[]) => void

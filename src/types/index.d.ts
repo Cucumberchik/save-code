@@ -13,3 +13,10 @@ interface UserType {
     uid:string,
     todo:ElementType[]
 }
+
+interface TodoObjType  {
+    code:string,
+    date: Date,
+    language:string,
+    title: string
+}

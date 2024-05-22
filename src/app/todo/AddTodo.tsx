@@ -4,8 +4,12 @@ import { keyframes } from '@emotion/react'
 import styled from '@emotion/styled'
 import type { NextPage } from 'next'
 import { useRef, useState, type ReactNode } from 'react'
-import { Editor, OnMount } from "@monaco-editor/react";
+import { Editor } from "@monaco-editor/react";
 import { CODE_SNIPPETS } from '@/constants'
+import useTodo from '@/zustands/todo'
+import SaveCodeElement from './SaveCodeElement'
+
+
 
 interface StyledSectionPropsType {
     $status: string
@@ -48,19 +52,26 @@ const Section = styled.section<StyledSectionPropsType>`
     width: 80%;
     height: 80%;
     background: #1d1d1d;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
   }
+
   .mtk8 {
     color: #F75F8F;
   }
+
   .mtk22 {
     color: #BF7AF0;
   }
+
   .mtk9.bracket-highlighting-0{
     color: #EDEDED;
   }
+
   .monaco-editor {
-    font-family: "Roboto";
-    --monaco-monospace-font: "SF Mono",Monaco,Menlo,Consolas,"Ubuntu Mono","Liberation Mono","DejaVu Sans Mono","Courier New",monospace;
+    font-family: "DM Mono";
+    --monaco-monospace-font: "DM Mono";
     .monaco_diff_editor {
         --vscode-editor-background: transparent;
     }
@@ -68,11 +79,12 @@ const Section = styled.section<StyledSectionPropsType>`
         background-color: #101010;
     }
   }
+
   .view-line {
     span {
-            font-size: 15px;
-            font-weight: 500;
-            letter-spacing: .5px;
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: .5px;
     }
     
   }
@@ -82,32 +94,53 @@ const Section = styled.section<StyledSectionPropsType>`
 const DialogAddTodo:NextPage = ():ReactNode => {
     const editorRef = useRef<any>();
     const [code, setCode] = useState<string>("");
-    const { statusTodo, setStatusTodo } = useDialogStatus();
-    const [language, setLanguage] = useState<string>("javascript");
+    const {statusTodo, setStatusTodo } = useDialogStatus();
+    const {language, titleTodo} = useTodo();
   
     const onMount = (editor: any) => {
       editorRef.current = editor;
       editorRef.current.focus();
     };
+
+    const handleCloseWindow = () => {
+      setStatusTodo('closed');
+      if(!code) return;
+
+      let linkTodo:any = localStorage.getItem("todo")
+      let todoStorage:TodoObjType[] = JSON.parse(linkTodo) || [];
+
+      const todoObj:TodoObjType = {
+        code,
+        date: new Date(),
+        language,
+        title: titleTodo
+      }
+      localStorage.setItem('todo', JSON.stringify([...todoStorage, todoObj]));
+      setCode('')
+    }
+    
     
   return (
     <Section $status={statusTodo} id="dialog" >
-        <div className="contant" onClick={()=>setStatusTodo('closed')} >
+        <div className="contant" onClick={handleCloseWindow} >
             <div className="container" onClick={(e)=>e.stopPropagation()}>
-            <Editor
-            options={{
-              minimap: {
-                enabled: false,
-              },
-            }}
-            height="75%"
-            theme="vs-dark"
-            language={language}
-            defaultValue={CODE_SNIPPETS[language]}
-            onMount={onMount}
-            value={code}
-            onChange={(value:any) => setCode(value)}
-          />
+                <SaveCodeElement />
+                <Editor
+                    options={{
+                    minimap: {
+                        enabled: false,
+                    },
+                    }}
+                    height="90%"
+                    width="98%"
+                    theme="vs-dark"
+                    language={language}
+
+                    defaultValue={CODE_SNIPPETS[language]}
+                    onMount={onMount}
+                    value={code}
+                    onChange={(value:any) => setCode(value)}
+                />
             </div>
         </div>
     </Section>

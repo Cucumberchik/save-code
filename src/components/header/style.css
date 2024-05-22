@@ -66,14 +66,12 @@ header .user_info {
 header .user_info:hover {
     background: var(--gray-alpha-200);
 }
-.dropdawn_header {
+.dropdawn {
     display: block;
-    position: absolute;
-    right: 0;
     z-index: 20;
     min-width: 200px;
     padding: 10px 0;
-    border-radius: 12px;
+    border-radius: 10px;
     background-color: var(--background-300);
     border: 1px solid var(--gray-alpha-400);
     ul {
@@ -117,6 +115,11 @@ header .user_info:hover {
         
     }
 }
+.dropdawn_header {
+    position: absolute;
+    right: 0;
+    
+}
 .dropdawn_header.disabled {
     display: none;
 }
@@ -129,6 +132,25 @@ header .user_info:hover {
 .dropdawn_header.close {
     animation: closeDropdawn 0.3s ease-in-out forwards;
 }
+.dropdawn_add_todo {
+    position: absolute;
+    left: 0;
+    top: 50px;
+}
+
+.dropdawn_add_todo.disabled {
+    display: none;
+}
+
+.dropdawn_add_todo.open {
+    display: block;
+    animation: openDropdawnLanguage 0.3s ease-in-out forwards;
+}
+
+.dropdawn_add_todo.close {
+    animation: closeDropdawnLanguage 0.3s ease-in-out forwards;
+}
+
 
 @keyframes openDropdawn {
     from {
@@ -156,8 +178,44 @@ header .user_info:hover {
     to {
         opacity: 0;
         margin-top: 2px;
+        
         transform: translateY(-4px);
         display: none;
 
     }
 }
+
+@keyframes openDropdawnLanguage {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+        display: none;
+        margin-top: 10px;
+
+    }
+    to {
+        opacity: 1;
+        margin-top: 3px;
+        transform: translateY(0);
+        display: block;
+    }
+}
+
+@keyframes closeDropdawnLanguage {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+        margin-top: 5px;
+        display: block;
+
+    }
+    to {
+        opacity: 0;
+        margin-top: 10px;
+
+        transform: translateY(-10px);
+        display: none;
+
+    }
+}
+

@@ -47,7 +47,7 @@ export const CheckUserProvider:NextPage<ProvidersType> = ({children}) => {
         if(user !== null) {
             handleCheckUser()
         }
-    },[loadingUser, handleCheckUser])
+    },[loadingUser])
     
     return children
 }
