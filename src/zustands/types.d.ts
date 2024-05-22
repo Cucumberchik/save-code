@@ -10,3 +10,14 @@ interface UseAuthUser {
     checkUser:()=>void,
     signInGoogleProvider: ()=>void,
 }
+interface UseDialogStatus {
+    statusLogin: string,
+    statusSignin: string,
+    setStatusLogin: (status:string) => void,
+    setStatusSignin: (status:string) => void
+}
+
+interface UseChangeDropdawn {
+    isHeaderDropdawn: string,
+    setIsHeaderDropdawn: (newState:string) => void
+}

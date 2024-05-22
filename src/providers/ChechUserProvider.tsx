@@ -5,9 +5,10 @@ import { NextPage } from "next"
 import { useEffect } from "react";
 
 export const CheckUserProvider:NextPage<ProvidersType> = ({children}) => {
-    const {checkUser} = useAuth();
+    const {checkUser, user} = useAuth();
     useEffect(()=>{
         checkUser()
-    },[])
+    },[checkUser])
+    
     return children
 }

@@ -1,8 +1,130 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+:root {
+  --font-family:  system,-apple-system,".SFNSText-Regular","San Francisco","Segoe UI","Helvetica Neue","Lucida Grande",sans-serif;
+  --blue-100: oklch(22.17% 0.069 259.89);
+  --blue-200: oklch(25.45% 0.0811 255.8);
+  --blue-300: oklch(30.86% 0.1022 255.21);
+  --blue-400: oklch(34.1% 0.121 254.74);
+  --blue-500: oklch(38.5% 0.1403 254.4);
+  --blue-600: oklch(64.94% 0.1982 251.8131841760864);
+  --blue-700: oklch(57.61% 0.2321 258.23);
+  --blue-800: oklch(51.51% 0.2307 257.85);
+  --blue-900: oklch(71.7% 0.1648 250.79360374054167);
+  --blue-1000: oklch(96.75% 0.0179 242.4234217368056);
+  --red-100: oklch(22.1% 0.0657 15.11);
+  --red-200: oklch(25.93% 0.0834 19.02);
+  --red-300: oklch(31.47% 0.1105 20.96);
+  --red-400: oklch(35.27% 0.1273 21.23);
+  --red-500: oklch(40.68% 0.1479 23.16);
+  --red-600: oklch(62.56% 0.2277 23.03);
+  --red-700: oklch(62.56% 0.2234 23.03);
+  --red-800: oklch(58.01% 0.227 25.12);
+  --red-900: oklch(69.96% 0.2136 22.03);
+  --red-1000: oklch(95.6% 0.0293 6.61);
+  --amber-100: oklch(22.46% 0.0538 76.04);
+  --amber-200: oklch(24.95% 0.0642 64.78);
+  --amber-300: oklch(32.34% 0.0837 63.83);
+  --amber-400: oklch(35.53% 0.0903 66.29707162673735);
+  --amber-500: oklch(41.55% 0.1044 67.98);
+  --amber-600: oklch(75.04% 0.1737 74.49);
+  --amber-700: oklch(81.87% 0.1969 76.46);
+  --amber-800: oklch(77.21% 0.1991 64.28);
+  --amber-900: oklch(77.21% 0.1991 64.28);
+  --amber-1000: oklch(96.7% 0.0418 84.59);
+  --green-100: oklch(23.09% 0.0716 149.68);
+  --green-200: oklch(27.12% 0.0895 150.09);
+  --green-300: oklch(29.84% 0.096 149.25);
+  --green-400: oklch(34.39% 0.1039 147.78);
+  --green-500: oklch(44.19% 0.1484 147.2);
+  --green-600: oklch(58.11% 0.1815 146.55);
+  --green-700: oklch(64.58% 0.199 147.27);
+  --green-800: oklch(57.81% 0.1776 147.5);
+  --green-900: oklch(73.1% 0.2158 148.29);
+  --green-1000: oklch(96.76% 0.056 154.18);
+  --teal-100: oklch(22.1% 0.0544 178.74);
+  --teal-200: oklch(25.06% 0.062 178.76);
+  --teal-300: oklch(31.5% 0.0767 180.99);
+  --teal-400: oklch(32.43% 0.0763 180.13);
+  --teal-500: oklch(43.35% 0.1055 180.97);
+  --teal-600: oklch(60.71% 0.1485 180.24);
+  --teal-700: oklch(64.92% 0.1403 181.95);
+  --teal-800: oklch(57.53% 0.1392 181.66);
+  --teal-900: oklch(74.56% 0.1765 182.8);
+  --teal-1000: oklch(96.46% 0.056 180.29);
+  --purple-100: oklch(22.34% 0.0779 316.87);
+  --purple-200: oklch(25.91% 0.0921 314.41);
+  --purple-300: oklch(31.98% 0.1219 312.41);
+  --purple-400: oklch(35.93% 0.1504 309.78);
+  --purple-500: oklch(40.99% 0.1721 307.92);
+  --purple-600: oklch(55.5% 0.2191 306.12);
+  --purple-700: oklch(55.5% 0.2186 306.12);
+  --purple-800: oklch(48.58% 0.2102 305.73);
+  --purple-900: oklch(69.87% 0.2037 309.51);
+  --purple-1000: oklch(96.1% 0.0304 316.46);
+  --pink-100: oklch(22.67% 0.0628 354.73);
+  --pink-200: oklch(26.2% 0.0859 356.68);
+  --pink-300: oklch(31.15% 0.1067 355.93);
+  --pink-400: oklch(32.13% 0.1174 356.71);
+  --pink-500: oklch(37.01% 0.1453 358.39);
+  --pink-600: oklch(50.33% 0.2089 4.33);
+  --pink-700: oklch(63.52% 0.2346 1.01);
+  --pink-800: oklch(59.51% 0.2429 4.21);
+  --pink-900: oklch(69.36% 0.2223 3.91);
+  --pink-1000: oklch(95.74% 0.0326 350.08);
+  --gray-alpha-100: hsla(0,0%,100%,.06);
+  --gray-alpha-200: hsla(0,0%,100%,.09);
+  --gray-alpha-300: hsla(0,0%,100%,.13);
+  --gray-alpha-400: hsla(0,0%,100%,.14);
+  --gray-alpha-500: hsla(0,0%,100%,.24);
+  --gray-alpha-600: hsla(0,0%,100%,.51);
+  --gray-alpha-700: hsla(0,0%,100%,.54);
+  --gray-alpha-800: hsla(0,0%,100%,.47);
+  --gray-alpha-900: hsla(0,0%,100%,.61);
+  --gray-alpha-950: hsla(0, 0%, 93%, 0.92);
+  --gray-alpha-1000: hsla(0,0%,100%,.92);
+  --background-100: #0a0a0a;
+  --background-200: #000;
+  --focus-border: 0 0 0 1px var(--gray-alpha-600),0px 0px 0px 4px hsla(0,0%,100%,.24);
+  --focus-color: var(--blue-900);
+  --shadow-border-inset: inset 0 0 0 1px hsla(0,0%,100%,.1);
+  --PhoneInputCountryFlag-borderColor: rgba(0,0,0,.5);
+
+  --container-size: 90%;
+}
 *{
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   color-scheme: dark;
-  font-family: "Roboto";
+  text-rendering: optimizeLegibility;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+a {
+  text-decoration: none;
+
+}
+.d-f-c {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+a, input, button {
+  cursor: pointer;
+}
+
+:host, html {
+  text-rendering: optimizeLegibility;
+  scroll-padding-top: 64px;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+ul {
+  list-style: none;
 }
