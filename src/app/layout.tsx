@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Providers from "@/providers/Providers";
 
 export const metadata: Metadata = {
   title: "Todo Save Code",
@@ -16,7 +17,12 @@ export default function RootLayout({
       <head>
         <link rel="icon" sizes="32x32" href="/favicon.ico" />
       </head>
-      <body>{children}</body>
+      
+      <body>
+        <Providers>
+          {children}
+        </Providers>
+      </body>
     </html>
   );
 }
