@@ -87,6 +87,7 @@
   --background-100: #0a0a0a;
   --background-300: #151515;
   --background-200: #000;
+  --gray-background: #222222;
   --focus-border: 0 0 0 1px var(--gray-alpha-600),0px 0px 0px 4px hsla(0,0%,100%,.24);
   --focus-color: var(--blue-900);
   --shadow-border-inset: inset 0 0 0 1px hsla(0,0%,100%,.1);

@@ -14,6 +14,8 @@ interface UseDialogStatus {
     statusLogin: string,
     statusSignin: string,
     statusTodo: string,
+    deleteStatus:string,
+    setDelete: (status:string) => void,
     setStatusTodo: (status:string) => void,
     setStatusLogin: (status:string) => void,
     setStatusSignin: (status:string) => void

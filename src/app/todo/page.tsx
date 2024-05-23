@@ -5,8 +5,9 @@ import { useDialogStatus } from "@/zustands/Dialogs"
 import useTodo from "@/zustands/todo"
 import styled from "@emotion/styled"
 import { NextPage } from "next"
-import { ReactNode } from "react"
+import { ReactNode, useState } from "react"
 import DialogAddTodo from "./AddTodo"
+import DeleteDialog from "./DeleteDialog"
 
 let Section = styled.section`
     width: 100%;
@@ -101,11 +102,13 @@ let Section = styled.section`
 `
 const Todo:NextPage = ():ReactNode => {
     const {searching, setSearching, todo} = useTodo();
-    const { setStatusTodo} = useDialogStatus()
+    const { setStatusTodo, setDelete} = useDialogStatus();
+    const [idTodo, setIdTodo] = useState<number>(NaN)
 
     return(
     <>
         <DialogAddTodo />
+        <DeleteDialog id={idTodo}/>
         <Section className="d-f-c" id="todo">
             <div className="container">
                 <div className="info_todo">
@@ -130,7 +133,10 @@ const Todo:NextPage = ():ReactNode => {
                             <button className="open_btn" >
                                 <Typography variant="body">Открыть</Typography>
                             </button>
-                            <button className="delete_btn">
+                            <button className="delete_btn" onClick={()=>{
+                                setDelete('opened');
+                                setIdTodo(idx)
+                                }} >
                                 <Typography variant="body">Удалить</Typography>
                             </button>
                         </div>
