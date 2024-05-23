@@ -6,7 +6,6 @@ import { create } from "zustand";
 const useAppTodo = create<UseAppTodo>((set)=>({
     user_id: null,
     todo: [],
-    searching: "",
     dropdawnLanguage: "disabled",
     language: "javascript",
     titleTodo: "",
@@ -14,7 +13,6 @@ const useAppTodo = create<UseAppTodo>((set)=>({
     setTitleTodo: (title) => set({titleTodo:title}),
     setdropdawnLanguage: (status) => set({dropdawnLanguage: status}),
     setLanguage: (language) => set({language:language}),
-    setSearching: (value) => set({searching: value}),
     setUserId: (id) => set({user_id: id}),
     setTodo: (data) => set({todo:data}),
     changeTodo: async( _id, todo) => {

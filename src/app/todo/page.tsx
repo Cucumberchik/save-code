@@ -9,10 +9,11 @@ import { ReactNode, useState } from "react"
 import DialogAddTodo from "./AddTodo"
 import DeleteDialog from "./DeleteDialog"
 import OpenTodo from "./OpenTodo"
+import { Editor } from "@monaco-editor/react"
 
 let Section = styled.section`
     width: 100%;
-    height: 100vh;
+    /* height: 100vh; */
     
     .container {
         width: var(--container-size);
@@ -57,33 +58,64 @@ let Section = styled.section`
         }
     }
     .todo_item {
+        --border-color: var(--gray-alpha-400);
+        &:hover{
+            --border-color: var(--gray-alpha-500);   
+        }
         transition: .15s;
         width: 80%;
-        height: 80px;
-        border: 1px solid var(--gray-alpha-400);
+        border: 1.4px solid var(--border-color);
         border-radius: 10px;
-        padding: 5px 10px;
+        padding: 5px 0px;
         display: flex;
         align-items: center;
+        flex-direction: column;
         justify-content: space-between;
+        gap: 20px;
         cursor: pointer;
-        &:hover {
-            border: 1px solid var(--gray-alpha-500);
 
+        .item_title{
+            width: 100%;
+            padding: 12px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            button {
+                display: flex;
+                align-items: center;
+                padding: 5px 5px;
+                background: transparent;
+                border-radius: 6px;
+                transition: transform 0.2s ease; 
+                border: 1.6px solid var(--gray-alpha-500);
+                &:hover {
+                    background: var(--gray-alpha-100);
+
+                }
+                &:active {
+                    transform: scale(0.9); 
+
+                }
+            }
         }
-
+        .name_todo {
+            display: flex;
+            flex-direction: column;
+        }
         .lanuage_item {
             border: 1.4px solid var(--gray-alpha-500);
             border-radius: 4px;
-            padding: 1px 3px;
+            padding: 3px 8px;
+            font-family: var(--font-family);
         }
         .action_btn {
             display: flex;
-            flex-direction: column;
             gap: 5px;
             button {
                 padding: 5px 10px;
                 border-radius: 5px;
+
             }
             .open_btn {
                 background: var(--gray-alpha-1000);
@@ -100,13 +132,50 @@ let Section = styled.section`
             }
         }
     }
+    .mtk8 {
+        color: #F75F8F;
+    }
+
+    .mtk22 {
+        color: #BF7AF0;
+    }
+
+    .mtk9.bracket-highlighting-0{
+        color: #EDEDED;
+    }
+
+    .monaco-editor {
+        overflow: scroll;
+        .monaco_diff_editor {
+            --vscode-editor-background: transparent;
+            --vscode-editorGutter-background: transparent;
+        }
+        .monaco-editor-background, .margin {
+            background-color: #101010;
+        }
+    }
+
+    .view-line {
+    span {
+        /* font-size: 15px; */
+        font-weight: 400;
+    }
+    
+    }
 `
 const Todo:NextPage = ():ReactNode => {
-    const {searching, setSearching, todo} = useTodo();
+    const [searching, setSearching] = useState("")
+    const { todo} = useTodo();
     const { setStatusTodo, setDelete, setOpenTodo} = useDialogStatus();
     const [idTodo, setIdTodo] = useState<number>(NaN);
     const [todoObj, setTodoObj] = useState<any>(null)
 
+    
+    const handleCopyText = (text:string) => {
+        navigator.clipboard.writeText(text)
+    }
+    
+    
     return(
     <>
         <DialogAddTodo />
@@ -125,29 +194,108 @@ const Todo:NextPage = ():ReactNode => {
                         <Typography variant="h5">Добавить</Typography>
                     </button>
                 </div>
-                {todo.map((el:ElementType, idx:number)=>(
-                    <div key={idx} className="todo_item">
-                        <div className="item_title">
-                            <Typography variant="h4" >{el.note} </Typography>
-                            <Typography variant="body">{el.date.split(' ')[2]} {el.date.split(' ')[3]} {el.date.split(' ')[4] + " "}</Typography>
-                            <span className="lanuage_item">{el.language}</span>
+                {
+                    searching ? todo.filter((el)=>el.note.includes(searching)).map((el, idx:number)=>(
+                        <div key={idx} className="todo_item">
+                            <div className="item_title">
+                                <div className="name_todo">
+                                    <Typography variant="h4" >{el.note} </Typography>
+                                    <Typography variant="body">{el.date.split(' ')[2]} {el.date.split(' ')[3]} {el.date.split(' ')[4] + " "}</Typography>
+                                </div>
+                                <span className="lanuage_item">{el.language}</span>
+                                <button onClick={()=>handleCopyText(el.code)}>
+                                <svg data-testid="geist-icon" fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24" aria-hidden="true" style={{color: "currentcolor", width: "20px", height: "20px"}}><path d="M6 17C4.89543 17 4 16.1046 4 15V5C4 3.89543 4.89543 3 6 3H13C13.7403 3 14.3866 3.4022 14.7324 4M11 21H18C19.1046 21 20 20.1046 20 19V9C20 7.89543 19.1046 7 18 7H11C9.89543 7 9 7.89543 9 9V19C9 20.1046 9.89543 21 11 21Z"></path></svg>
+                                </button>
+                            </div>
+                            <Editor
+                                options={{
+                                    minimap: {
+                                        enabled: false,
+                                    },
+                                    readOnly:true,
+                                    scrollBeyondLastLine: false,
+                                    automaticLayout: true,
+                                    scrollbar: {
+                                        vertical: 'hidden',
+                                        horizontal: 'hidden'
+                                    },    
+                                    fontSize: 14,
+                                    fontFamily: '"Azeret Mono", var(--font-family)',
+                                    contextmenu: false,
+                                }}
+                                height={`${22 * el.code.split("\n").length}px`}
+                                theme="vs-dark"
+                                language={el.language}
+                                value={el.code}
+                                
+                            />
+                            <div className="action_btn">
+                                <button className="open_btn" onClick={()=>{
+                                    setOpenTodo('opened');
+                                    setTodoObj(el)
+                                    }} >
+                                    <Typography variant="body">Открыть</Typography>
+                                </button>
+                                <button className="delete_btn" onClick={()=>{
+                                    setDelete('opened');
+                                    setIdTodo(idx)
+                                    }} >
+                                    <Typography variant="body">Удалить</Typography>
+                                </button>
+                            </div>
                         </div>
-                        <div className="action_btn">
-                            <button className="open_btn" onClick={()=>{
-                                setOpenTodo('opened');
-                                setTodoObj(el)
-                                }} >
-                                <Typography variant="body">Открыть</Typography>
-                            </button>
-                            <button className="delete_btn" onClick={()=>{
-                                setDelete('opened');
-                                setIdTodo(idx)
-                                }} >
-                                <Typography variant="body">Удалить</Typography>
-                            </button>
+                    )) : todo.map((el:ElementType, idx:number)=>(
+                        <div key={idx} className="todo_item">
+                            <div className="item_title">
+                                <div className="name_todo">
+                                    <Typography variant="h4" >{el.note} </Typography>
+                                    <Typography variant="body">{el.date.split(' ')[2]} {el.date.split(' ')[3]} {el.date.split(' ')[4] + " "}</Typography>
+                                </div>
+                                <span className="lanuage_item">{el.language}</span>
+                                <button onClick={()=>handleCopyText(el.code)}>
+                                <svg data-testid="geist-icon" fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24" aria-hidden="true" style={{color: "currentcolor", width: "20px", height: "20px"}}><path d="M6 17C4.89543 17 4 16.1046 4 15V5C4 3.89543 4.89543 3 6 3H13C13.7403 3 14.3866 3.4022 14.7324 4M11 21H18C19.1046 21 20 20.1046 20 19V9C20 7.89543 19.1046 7 18 7H11C9.89543 7 9 7.89543 9 9V19C9 20.1046 9.89543 21 11 21Z"></path></svg>
+                                </button>
+                            </div>
+                            <Editor
+                                options={{
+                                    minimap: {
+                                        enabled: false,
+                                    },
+                                    readOnly:true,
+                                    scrollBeyondLastLine: false,
+                                    automaticLayout: true,
+                                    scrollbar: {
+                                        vertical: 'hidden',
+                                        horizontal: 'hidden'
+                                    },    
+                                    fontSize: 14,
+                                    fontFamily: '"Azeret Mono", var(--font-family)',
+                                    contextmenu: false,
+                                }}
+                                height={`${22 * el.code.split("\n").length}px`}
+                                theme="vs-dark"
+                                language={el.language}
+                                value={el.code}
+                                
+                            />
+                            <div className="action_btn">
+                                <button className="open_btn" onClick={()=>{
+                                    setOpenTodo('opened');
+                                    setTodoObj(el)
+                                    }} >
+                                    <Typography variant="body">Открыть</Typography>
+                                </button>
+                                <button className="delete_btn" onClick={()=>{
+                                    setDelete('opened');
+                                    setIdTodo(idx)
+                                    }} >
+                                    <Typography variant="body">Удалить</Typography>
+                                </button>
+                            </div>
                         </div>
-                    </div>
-                ))}
+                    ))
+                }
+                
             </div>
         </Section>
     </>
@@ -156,3 +304,5 @@ const Todo:NextPage = ():ReactNode => {
 
 
 export default Todo
+
+

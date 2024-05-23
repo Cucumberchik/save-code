@@ -3,7 +3,7 @@ import { useDialogStatus } from '@/zustands/Dialogs'
 import { keyframes } from '@emotion/react'
 import styled from '@emotion/styled'
 import type { NextPage } from 'next'
-import { useRef, useState, type ReactNode } from 'react'
+import {  useState, type ReactNode } from 'react'
 import { Editor } from "@monaco-editor/react";
 import { CODE_SNIPPETS } from '@/constants'
 import useTodo from '@/zustands/todo'
@@ -26,6 +26,7 @@ const fadeOut = keyframes`
 
 const Section = styled.section<StyledSectionPropsType>`
   cursor: pointer;
+  z-index: 20;
   position: absolute;
   top: 0;
   left: 0;
@@ -70,8 +71,8 @@ const Section = styled.section<StyledSectionPropsType>`
   }
 
   .monaco-editor {
-    font-family: "DM Mono";
-    --monaco-monospace-font: "DM Mono";
+    font-family: "JetBrains Mono";
+    --monaco-monospace-font: "JetBrains Mono";
     .monaco_diff_editor {
         --vscode-editor-background: transparent;
     }
@@ -82,8 +83,7 @@ const Section = styled.section<StyledSectionPropsType>`
 
   .view-line {
     span {
-      font-size: 15px;
-      font-weight: 500;
+      font-weight: 430;
       letter-spacing: .5px;
     }
     
@@ -92,15 +92,9 @@ const Section = styled.section<StyledSectionPropsType>`
 `;
 
 const DialogAddTodo:NextPage = ():ReactNode => {
-    const editorRef = useRef<any>();
     const [code, setCode] = useState<string>("");
     const {statusTodo, setStatusTodo } = useDialogStatus();
     const {language, titleTodo , user_id, todo, setTitleTodo, postTodo} = useTodo();
-  
-    const onMount = (editor: any) => {
-      editorRef.current = editor;
-      editorRef.current.focus();
-    };
 
     const handleCloseWindow = () => {
       if(!code) {
@@ -145,9 +139,18 @@ const DialogAddTodo:NextPage = ():ReactNode => {
                 <SaveCodeElement handleSandCode={handleSandCode} handleCloseWindow={handleCloseWindow} />
                 <Editor
                     options={{
-                    minimap: {
+                      minimap: {
                         enabled: false,
-                    },
+                      },
+                      scrollBeyondLastLine: false,
+                      automaticLayout: true,
+                      scrollbar: {
+                          vertical: 'hidden',
+                          horizontal: 'hidden'
+                      },    
+                      fontSize: 14,
+                      fontFamily: '"Azeret Mono", var(--font-family)',
+                      contextmenu: false,
                     }}
                     height="90%"
                     width="98%"
@@ -155,7 +158,7 @@ const DialogAddTodo:NextPage = ():ReactNode => {
                     language={language}
 
                     defaultValue={CODE_SNIPPETS[language]}
-                    onMount={onMount}
+                    // onMount={onMount}
                     value={code}
                     onChange={(value:any) => setCode(value)}
                 />

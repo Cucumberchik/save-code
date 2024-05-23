@@ -3,11 +3,12 @@ import { useDialogStatus } from '@/zustands/Dialogs'
 import { keyframes } from '@emotion/react'
 import styled from '@emotion/styled'
 import type { NextPage } from 'next'
-import { useEffect, useRef, useState, type ReactNode } from 'react'
+import { useEffect, useState, type ReactNode } from 'react'
 import { Editor } from "@monaco-editor/react";
 import { CODE_SNIPPETS } from '@/constants'
 import useTodo from '@/zustands/todo'
 import SaveCodeElement from './SaveCodeElement'
+import Typography from '@/typography/typogrpahy'
 
 
 
@@ -25,7 +26,9 @@ const fadeOut = keyframes`
 `;
 
 const Section = styled.section<StyledSectionPropsType>`
+  
   cursor: pointer;
+  z-index: 20;
   position: absolute;
   top: 0;
   left: 0;
@@ -82,8 +85,7 @@ const Section = styled.section<StyledSectionPropsType>`
 
   .view-line {
     span {
-      font-size: 15px;
-      font-weight: 500;
+      font-weight: 430;
       letter-spacing: .5px;
     }
     
@@ -92,15 +94,14 @@ const Section = styled.section<StyledSectionPropsType>`
 `;
 
 const OpenTodo:NextPage<{obj:ElementType}> = ({obj}):ReactNode => {
-    const editorRef = useRef<any>();
+    
+
     const [code, setCode] = useState<string>("");
     const {openTodoStatus, setOpenTodo } = useDialogStatus();
     const {language, titleTodo , user_id, todo, setTitleTodo, changeTodo} = useTodo();
-  
-    const onMount = (editor: any) => {
-      editorRef.current = editor;
-      editorRef.current.focus();
-    };
+    useEffect(()=>{
+        setCode(obj?.code)
+    },[obj?.code])
 
     const handleCloseWindow = () => {
 
@@ -138,10 +139,7 @@ const OpenTodo:NextPage<{obj:ElementType}> = ({obj}):ReactNode => {
         setOpenTodo('closed');
     }
     
-    useEffect(()=>{
-        setCode(obj?.code);
-        setTitleTodo(obj?.note)
-    },[openTodoStatus])
+   
   return (
     <Section $status={openTodoStatus} id="dialog" >
         <div className="contant" onClick={handleCloseWindow} >
@@ -149,20 +147,29 @@ const OpenTodo:NextPage<{obj:ElementType}> = ({obj}):ReactNode => {
                 <SaveCodeElement handleCloseWindow={()=>setOpenTodo('closed')} handleSandCode={handleSandCode} />
                 <Editor
                     options={{
-                    minimap: {
-                        enabled: false,
-                    },
-                    }}
+                        minimap: {
+                          enabled: false,
+                        },
+                        scrollBeyondLastLine: false,
+                        automaticLayout: true,
+                        scrollbar: {
+                            vertical: 'hidden',
+                            horizontal: 'hidden'
+                        },    
+                        fontSize: 14,
+                        fontFamily: '"Azeret Mono", var(--font-family)',
+                        contextmenu: false,
+                      }}
                     height="90%"
                     width="98%"
                     theme="vs-dark"
                     language={language}
 
                     defaultValue={CODE_SNIPPETS[language]}
-                    onMount={onMount}
                     value={code}
                     onChange={(value:any) => setCode(value)}
                 />
+                
             </div>
         </div>
     </Section>

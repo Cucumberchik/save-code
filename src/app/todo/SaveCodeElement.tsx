@@ -7,6 +7,7 @@ import { ReactElement, useState } from "react";
 
 const Box = styled.div`
     position: relative;
+    z-index: 20;
     border-radius: 8px;
     width: 100%;
     height: 60px;

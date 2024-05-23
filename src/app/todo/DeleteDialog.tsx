@@ -24,6 +24,7 @@ const fadeOut = keyframes`
 const Section = styled.section<StyledSectionPropsType>`
   cursor: pointer;
   position: absolute;
+  z-index: 20;
   top: 0;
   left: 0;
   width: 100%;

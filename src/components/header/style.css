@@ -3,7 +3,9 @@ header {
     height: 45px;
     border-bottom: 0.5px solid var(--gray-alpha-500);
     background: var(--background-100);
-    
+    *{
+        font-family: var(--font-family);
+    }
 }
 
 header .container {

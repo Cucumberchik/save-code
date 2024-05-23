@@ -1,27 +1,27 @@
 interface LANGUAGE_TYPE {
-    javascript: string,
-    typescript: string,
-    python: string,
-    java: string,
-    csharp: string,
-    php: string,
+    Javascript: string,
+    Typescript: string,
+    Python: string,
+    Java: string,
+    Csharp: string,
+    PHP: string,
 }
 
 export const LANGUAGE_VERSIONS:any = {
-    javascript: "22.2.0",
-    typescript: "5.0.3",
-    python: "3.10.0",
-    java: "15.0.2",
-    csharp: "6.12.0",
-    php: "8.2.3",
+    Javascript: "22.2.0",
+    Typescript: "5.0.3",
+    Python: "3.10.0",
+    Java: "15.0.2",
+    Csharp: "6.12.0",
+    PHP: "8.2.3",
 };
   
 export const CODE_SNIPPETS:any = {
-    javascript: "",
-    typescript: "",
-    python: "",
-    java: "",
-    csharp: "",
-    php: ""
+    Javascript: "",
+    Typescript: "",
+    Python: "",
+    Java: "",
+    Csharp: "",
+    PHP: ""
 };
   
