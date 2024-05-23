@@ -50,7 +50,7 @@ const Section = styled.section<StyledSectionPropsType>`
     border-radius: 8px;
     height: 60%;
     width: 40%;
-    background: var(--gray-alpha-100);
+    background: #151515;
     border: 0.5px solid var(--gray-alpha-400);
 
     display: flex;

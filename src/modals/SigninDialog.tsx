@@ -21,6 +21,7 @@ const fadeOut = keyframes`
 `;
 
 const Section = styled.section<StyledSectionPropsType>`
+  z-index: 20;
   cursor: pointer;
   position: absolute;
   top: 0;
@@ -49,7 +50,7 @@ const Section = styled.section<StyledSectionPropsType>`
     border-radius: 8px;
     height: 40%;
     width: 40%;
-    background: var(--gray-alpha-100);
+    background: #151515;
     border: 0.5px solid var(--gray-alpha-400);
 
     display: flex;
