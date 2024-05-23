@@ -21,7 +21,7 @@ const useAppTodo = create<UseAppTodo>((set)=>({
         let API:any = process.env.NEXT_PUBLIC_API_URL;
         set({isLoading: true});
         try {
-            const {data} = await axios.patch(`${API}/${_id}`,{todo: [...todo, obj]} );
+            const {data} = await axios.patch(`${API}/${_id}`,{todo: [obj, ...todo]} );
             let user = data.find((el:UserType)=>el._id == _id);
             set({todo: user.todo})
             

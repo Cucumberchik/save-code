@@ -18,6 +18,7 @@ let Section = styled.section`
         display: flex;
         flex-direction:column;
         align-items: center;
+        gap: 12px;
     }
     .info_todo {
         width: 80%;
@@ -53,9 +54,53 @@ let Section = styled.section`
             }
         }
     }
+    .todo_item {
+        transition: .15s;
+        width: 80%;
+        height: 80px;
+        border: 1px solid var(--gray-alpha-400);
+        border-radius: 10px;
+        padding: 5px 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+        &:hover {
+            border: 1px solid var(--gray-alpha-500);
+
+        }
+
+        .lanuage_item {
+            border: 1.4px solid var(--gray-alpha-500);
+            border-radius: 4px;
+            padding: 1px 3px;
+        }
+        .action_btn {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            button {
+                padding: 5px 10px;
+                border-radius: 5px;
+            }
+            .open_btn {
+                background: var(--gray-alpha-1000);
+                color: var(--background-100);
+                border: none;
+                &:hover {
+                    background: var(--gray-alpha-950);
+                }
+            }
+            .delete_btn {
+                background: none;
+                border: 1.2px solid var(--red-600);
+                color: var(--red-900);
+            }
+        }
+    }
 `
 const Todo:NextPage = ():ReactNode => {
-    const {searching, setSearching, todo} = useTodo()
+    const {searching, setSearching, todo} = useTodo();
     const { setStatusTodo} = useDialogStatus()
 
     return(
@@ -74,6 +119,23 @@ const Todo:NextPage = ():ReactNode => {
                         <Typography variant="h5">Добавить</Typography>
                     </button>
                 </div>
+                {todo.map((el:ElementType, idx:number)=>(
+                    <div key={idx} className="todo_item">
+                        <div className="item_title">
+                            <Typography variant="h4" >{el.note} </Typography>
+                            <Typography variant="body">{el.date.split(' ')[2]} {el.date.split(' ')[3]} {el.date.split(' ')[4] + " "}</Typography>
+                            <span className="lanuage_item">{el.language}</span>
+                        </div>
+                        <div className="action_btn">
+                            <button className="open_btn" >
+                                <Typography variant="body">Открыть</Typography>
+                            </button>
+                            <button className="delete_btn">
+                                <Typography variant="body">Удалить</Typography>
+                            </button>
+                        </div>
+                    </div>
+                ))}
             </div>
         </Section>
     </>

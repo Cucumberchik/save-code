@@ -103,20 +103,19 @@ const DialogAddTodo:NextPage = ():ReactNode => {
     };
 
     const handleCloseWindow = () => {
-      setStatusTodo('closed');
-      if(!code) return;
-
-      let linkTodo:any = localStorage.getItem("todo")
-      let todoStorage:ElementType[] = JSON.parse(linkTodo) || [];
-
-      const todoObj:ElementType = {
-        code,
-        date: `${new Date()}`,
-        language,
-        note: titleTodo
+      if(!code) {
+        setStatusTodo('closed');
+        return;
       }
-      localStorage.setItem('todo', JSON.stringify([...todoStorage, todoObj]));
-      setCode('')
+      let userClose = confirm("Вы уверены, что хотите закрыть? Написанный код не будет сохранен");
+      
+      if(userClose){
+        setCode('');
+        setTitleTodo('')
+        setStatusTodo('closed');
+        return;
+      }
+      
     }
 
     const handleSandCode = () => {
