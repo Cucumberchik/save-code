@@ -5,11 +5,12 @@ import { useDialogStatus } from "@/zustands/Dialogs"
 import useTodo from "@/zustands/todo"
 import styled from "@emotion/styled"
 import { NextPage } from "next"
-import { ReactNode, useState } from "react"
+import { ReactNode, useRef, useState } from "react"
 import DialogAddTodo from "./AddTodo"
 import DeleteDialog from "./DeleteDialog"
 import OpenTodo from "./OpenTodo"
 import { Editor } from "@monaco-editor/react"
+import useAuth from "@/zustands/auth"
 
 let Section = styled.section`
     width: 100%;
@@ -73,6 +74,10 @@ let Section = styled.section`
         justify-content: space-between;
         gap: 20px;
         cursor: pointer;
+        .code_block {
+            position: relative;
+            width: 100%;
+        }
 
         .item_title{
             width: 100%;
@@ -156,14 +161,15 @@ let Section = styled.section`
     }
 
     .view-line {
-    span {
-        /* font-size: 15px; */
-        font-weight: 400;
-    }
+        span {
+            /* font-size: 15px; */
+            font-weight: 400;
+        }
     
     }
 `
 const Todo:NextPage = ():ReactNode => {
+    const {user, loadingUser} = useAuth()
     const [searching, setSearching] = useState("")
     const { todo} = useTodo();
     const { setStatusTodo, setDelete, setOpenTodo} = useDialogStatus();
@@ -175,8 +181,10 @@ const Todo:NextPage = ():ReactNode => {
         navigator.clipboard.writeText(text)
     }
     
-    
-    return(
+    return !loadingUser && user === null ?
+    <div style={{width: '100%', display:"flex", justifyContent: "center"}}>
+        <Typography variant="web">Авторизуйтесь</Typography>
+    </div> :( 
     <>
         <DialogAddTodo />
         <DeleteDialog id={idTodo}/>
@@ -195,7 +203,7 @@ const Todo:NextPage = ():ReactNode => {
                     </button>
                 </div>
                 {
-                    searching ? todo.filter((el)=>el.note.includes(searching)).map((el, idx:number)=>(
+                    searching ? todo.filter((el)=>el.note.toLowerCase().includes(searching.toLowerCase())).map((el, idx:number)=>(
                         <div key={idx} className="todo_item">
                             <div className="item_title">
                                 <div className="name_todo">
@@ -256,28 +264,30 @@ const Todo:NextPage = ():ReactNode => {
                                 <svg data-testid="geist-icon" fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24" aria-hidden="true" style={{color: "currentcolor", width: "20px", height: "20px"}}><path d="M6 17C4.89543 17 4 16.1046 4 15V5C4 3.89543 4.89543 3 6 3H13C13.7403 3 14.3866 3.4022 14.7324 4M11 21H18C19.1046 21 20 20.1046 20 19V9C20 7.89543 19.1046 7 18 7H11C9.89543 7 9 7.89543 9 9V19C9 20.1046 9.89543 21 11 21Z"></path></svg>
                                 </button>
                             </div>
-                            <Editor
-                                options={{
-                                    minimap: {
-                                        enabled: false,
-                                    },
-                                    readOnly:true,
-                                    scrollBeyondLastLine: false,
-                                    automaticLayout: true,
-                                    scrollbar: {
-                                        vertical: 'hidden',
-                                        horizontal: 'hidden'
-                                    },    
-                                    fontSize: 14,
-                                    fontFamily: '"Azeret Mono", var(--font-family)',
-                                    contextmenu: false,
-                                }}
-                                height={`${22 * el.code.split("\n").length}px`}
-                                theme="vs-dark"
-                                language={el.language}
-                                value={el.code}
-                                
-                            />
+                            <div className="code_block">
+                                <Editor
+                                    options={{
+                                        minimap: {
+                                            enabled: false,
+                                        },
+                                        readOnly:true,
+                                        scrollBeyondLastLine: false,
+                                        automaticLayout: true,
+                                        scrollbar: {
+                                            vertical: 'hidden',
+                                            horizontal: 'hidden'
+                                        },    
+                                        fontSize: 14,
+                                        fontFamily: '"Azeret Mono", var(--font-family)',
+                                        contextmenu: false,
+                                    }}
+                                    height={`${22 * el.code.split("\n").length}px`}
+                                    theme="vs-dark"
+                                    language={el.language}
+                                    value={el.code}
+                                    
+                                />
+                            </div>
                             <div className="action_btn">
                                 <button className="open_btn" onClick={()=>{
                                     setOpenTodo('opened');
