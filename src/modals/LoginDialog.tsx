@@ -138,21 +138,11 @@ const LoginDialog:NextPage = ():ReactNode => {
         if(formInput.password.length < 9){
             alert("Длина пароля должно быть минимум 8 символов")
         }
-        createUser(formInput.email, formInput.password);
 
-        try {
-            createUser(formInput.email, formInput.password);
+            createUser(formInput.email, formInput.password, formInput.photoURL, formInput.displayName);
+            setStatusLogin('closed');
+            setTimeout(()=>{window.location.reload()},1000)
       
-            await updateProfile(user, {
-              displayName: formInput.displayName,
-              photoURL: formInput.photoURL
-            });
-      
-            alert('Регистрация прошла успешно');
-          } catch (error) {
-            console.error('Ошибка при регистрации:', error);
-            alert('Ошибка при регистрации');
-          }
     }
   return (
     <Section $status={statusLogin} id="dialog">

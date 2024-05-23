@@ -5,7 +5,8 @@ import {
     onAuthStateChanged, 
     signInWithEmailAndPassword, 
     signInWithRedirect, 
-    signOut
+    signOut,
+    updateProfile
 } from "firebase/auth";
 import { auth } from "@/firebase";
 import { create } from "zustand";
@@ -15,13 +16,21 @@ const useAuthUser = create<UseAuthUser>((set)=>({
     loadingUser: true,
     error: {state:false, message: ""},
     isLoading: false,
-    createUser: (email, password)=>{
+    createUser: (email, password, photoURL, displayName)=>{
         set({isLoading:true})
         try{
-             createUserWithEmailAndPassword(auth, email, password)
-                .then((user : any)=>{
-                    set({user})
+            createUserWithEmailAndPassword(auth, email, password)
+                .then(()=>{
+                    let user:any = auth.currentUser
+                    updateProfile(user, {
+                        displayName,
+                        photoURL
+                    }).then((user)=>{
+                        set({user})
+                            alert("Регистрация прошла успешно")
+                        })
                  })
+            
         }catch(e:any){
             set({error:{state: true, message: e.message}})
         }finally{

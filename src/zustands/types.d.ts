@@ -4,7 +4,7 @@ interface UseAuthUser {
     isLoading: boolean,
     loadingUser: boolean,
 
-    createUser:(email:string, password:string)=> void,
+    createUser:(email:string, password:string, photoURL:string, displayName:string)=> void,
     signIn:(email:string, password:string)=> void,
     signOutUser:()=> void,
     checkUser:()=>void,
