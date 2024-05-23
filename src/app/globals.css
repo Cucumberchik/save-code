@@ -92,7 +92,8 @@
   --focus-color: var(--blue-900);
   --shadow-border-inset: inset 0 0 0 1px hsla(0,0%,100%,.1);
   --PhoneInputCountryFlag-borderColor: rgba(0,0,0,.5);
-
+  
+  --text-gradient: linear-gradient(180deg,#fff,#adadad);
   --container-size: 90%;
 }
 *{
