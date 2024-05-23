@@ -95,7 +95,7 @@ const DialogAddTodo:NextPage = ():ReactNode => {
     const editorRef = useRef<any>();
     const [code, setCode] = useState<string>("");
     const {statusTodo, setStatusTodo } = useDialogStatus();
-    const {language, titleTodo} = useTodo();
+    const {language, titleTodo , user_id, todo, setTitleTodo, postTodo} = useTodo();
   
     const onMount = (editor: any) => {
       editorRef.current = editor;
@@ -107,16 +107,35 @@ const DialogAddTodo:NextPage = ():ReactNode => {
       if(!code) return;
 
       let linkTodo:any = localStorage.getItem("todo")
-      let todoStorage:TodoObjType[] = JSON.parse(linkTodo) || [];
+      let todoStorage:ElementType[] = JSON.parse(linkTodo) || [];
 
-      const todoObj:TodoObjType = {
+      const todoObj:ElementType = {
         code,
-        date: new Date(),
+        date: `${new Date()}`,
         language,
-        title: titleTodo
+        note: titleTodo
       }
       localStorage.setItem('todo', JSON.stringify([...todoStorage, todoObj]));
       setCode('')
+    }
+
+    const handleSandCode = () => {
+      if(!code){
+        alert('Редактор кода пустой');
+        return;
+      }
+
+        const todoObj:ElementType = {
+          code,
+          date: `${new Date()}`,
+          language,
+          note: titleTodo ? titleTodo : "Без имени"
+        }
+        
+        postTodo(todoObj, user_id, todo);
+        setCode("");
+        setTitleTodo("");
+        setStatusTodo('closed');
     }
     
     
@@ -124,7 +143,7 @@ const DialogAddTodo:NextPage = ():ReactNode => {
     <Section $status={statusTodo} id="dialog" >
         <div className="contant" onClick={handleCloseWindow} >
             <div className="container" onClick={(e)=>e.stopPropagation()}>
-                <SaveCodeElement />
+                <SaveCodeElement handleSandCode={handleSandCode} />
                 <Editor
                     options={{
                     minimap: {

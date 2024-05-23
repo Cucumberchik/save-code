@@ -31,10 +31,12 @@ interface UseAppTodo {
     language: string,
     dropdawnLanguage: string,
     titleTodo: string,
+    isLoading: boolean,
     setTitleTodo: (title) => void,
     setdropdawnLanguage: (status:string) => void,
     setLanguage: (language:string) => void,
     setSearching: (value:string) => void,
     setUserId: (id:number) => void,
-    setTodo: (data:ElementType[]) => void
+    setTodo: (data:ElementType[]) => void,
+    postTodo: (obj:TodoObjType, _id:number | null ,todo:ElementType[]) => void
 }

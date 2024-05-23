@@ -48,7 +48,7 @@ const Box = styled.div`
     }
 `
 
-const SaveCodeElement:NextPage = ():ReactElement => {
+const SaveCodeElement:NextPage<{handleSandCode:()=>void}> = ({handleSandCode}):ReactElement => {
     const {
         titleTodo, 
         dropdawnLanguage, 
@@ -57,6 +57,7 @@ const SaveCodeElement:NextPage = ():ReactElement => {
         setLanguage,
         setTitleTodo
     } = useTodo();
+
     
     
     const languages = ["javascript","typescript","python","java","csharp","php"]
@@ -80,7 +81,7 @@ const SaveCodeElement:NextPage = ():ReactElement => {
             </ul>
            </div>
            <input value={titleTodo} onChange={({target})=>setTitleTodo(target.value)} type="text" placeholder="Название" />
-           <button className="save_btn">
+           <button className="save_btn" onClick={handleSandCode} >
                 <Typography variant="h4">
                 Сохранить
                 </Typography>

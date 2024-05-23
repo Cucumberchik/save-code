@@ -6,6 +6,7 @@ interface ElementType {
     date: string,
     code: string,
     note: string,
+    language: string
 }
 
 interface UserType {
@@ -14,9 +15,3 @@ interface UserType {
     todo:ElementType[]
 }
 
-interface TodoObjType  {
-    code:string,
-    date: Date,
-    language:string,
-    title: string
-}

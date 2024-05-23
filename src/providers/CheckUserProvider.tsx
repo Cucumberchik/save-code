@@ -17,16 +17,14 @@ export const CheckUserProvider:NextPage<ProvidersType> = ({children}) => {
             const userCheck = data.find((el:UserType)=>el.uid == user?.uid)
                 
             if(!userCheck){
-                setTimeout(async()=>{
-                    let obj:any = { uid :user?.uid, todo:[]}
+                let obj:any = { uid :user?.uid, todo:[]}
 
-                    const {data} = await axios.post<UserType[]>(API, obj);
-                    const userCheck = data.find((el:UserType)=>el.uid == user?.uid);
-                    const {todo, _id}:any = userCheck
-                    setTodo(todo);
-                    setUserId(_id);
+                const {data} = await axios.post<UserType[]>(API, obj);
+                const userCheck = data.find((el:UserType)=>el.uid == user?.uid);
+                const {todo, _id}:any = userCheck
+                setTodo(todo);
+                setUserId(_id);
                      
-                },400)
                 return;
             }
                 const {todo, _id}:any = userCheck
