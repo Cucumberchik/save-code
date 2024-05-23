@@ -36,19 +36,26 @@ const Box = styled.div`
 
         }
     }
+    button {
+        padding: 3px 12px;
+        border-radius: 5px;
+    }
     .save_btn {
-        padding: 6px 20px;
+        
         background: var(--gray-alpha-1000);
         color: black;
-        border-radius: 5px;
         border: none;
         &:hover {
             background: var(--gray-alpha-950);
         }
     }
+    .close_btn {
+        background-color: var(--background-300);
+        border: 1px solid var(--gray-alpha-400);
+    }
 `
 
-const SaveCodeElement:NextPage<{handleSandCode:()=>void}> = ({handleSandCode}):ReactElement => {
+const SaveCodeElement:NextPage<{handleSandCode:()=>void, handleCloseWindow:()=>void,}> = ({handleSandCode, handleCloseWindow}):ReactElement => {
     const {
         titleTodo, 
         dropdawnLanguage, 
@@ -84,6 +91,11 @@ const SaveCodeElement:NextPage<{handleSandCode:()=>void}> = ({handleSandCode}):R
            <button className="save_btn" onClick={handleSandCode} >
                 <Typography variant="h4">
                 Сохранить
+                </Typography>
+           </button>
+           <button className="close_btn" onClick={handleCloseWindow} >
+                <Typography variant="h4">
+                Закрыть
                 </Typography>
            </button>
         </Box>

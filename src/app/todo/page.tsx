@@ -8,6 +8,7 @@ import { NextPage } from "next"
 import { ReactNode, useState } from "react"
 import DialogAddTodo from "./AddTodo"
 import DeleteDialog from "./DeleteDialog"
+import OpenTodo from "./OpenTodo"
 
 let Section = styled.section`
     width: 100%;
@@ -102,13 +103,15 @@ let Section = styled.section`
 `
 const Todo:NextPage = ():ReactNode => {
     const {searching, setSearching, todo} = useTodo();
-    const { setStatusTodo, setDelete} = useDialogStatus();
-    const [idTodo, setIdTodo] = useState<number>(NaN)
+    const { setStatusTodo, setDelete, setOpenTodo} = useDialogStatus();
+    const [idTodo, setIdTodo] = useState<number>(NaN);
+    const [todoObj, setTodoObj] = useState<any>(null)
 
     return(
     <>
         <DialogAddTodo />
         <DeleteDialog id={idTodo}/>
+        <OpenTodo obj={todoObj} />
         <Section className="d-f-c" id="todo">
             <div className="container">
                 <div className="info_todo">
@@ -130,7 +133,10 @@ const Todo:NextPage = ():ReactNode => {
                             <span className="lanuage_item">{el.language}</span>
                         </div>
                         <div className="action_btn">
-                            <button className="open_btn" >
+                            <button className="open_btn" onClick={()=>{
+                                setOpenTodo('opened');
+                                setTodoObj(el)
+                                }} >
                                 <Typography variant="body">Открыть</Typography>
                             </button>
                             <button className="delete_btn" onClick={()=>{

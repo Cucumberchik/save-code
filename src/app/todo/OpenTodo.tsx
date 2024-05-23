@@ -3,7 +3,7 @@ import { useDialogStatus } from '@/zustands/Dialogs'
 import { keyframes } from '@emotion/react'
 import styled from '@emotion/styled'
 import type { NextPage } from 'next'
-import { useRef, useState, type ReactNode } from 'react'
+import { useEffect, useRef, useState, type ReactNode } from 'react'
 import { Editor } from "@monaco-editor/react";
 import { CODE_SNIPPETS } from '@/constants'
 import useTodo from '@/zustands/todo'
@@ -91,11 +91,11 @@ const Section = styled.section<StyledSectionPropsType>`
     
 `;
 
-const DialogAddTodo:NextPage = ():ReactNode => {
+const OpenTodo:NextPage<{obj:ElementType}> = ({obj}):ReactNode => {
     const editorRef = useRef<any>();
     const [code, setCode] = useState<string>("");
-    const {statusTodo, setStatusTodo } = useDialogStatus();
-    const {language, titleTodo , user_id, todo, setTitleTodo, postTodo} = useTodo();
+    const {openTodoStatus, setOpenTodo } = useDialogStatus();
+    const {language, titleTodo , user_id, todo, setTitleTodo, changeTodo} = useTodo();
   
     const onMount = (editor: any) => {
       editorRef.current = editor;
@@ -103,18 +103,19 @@ const DialogAddTodo:NextPage = ():ReactNode => {
     };
 
     const handleCloseWindow = () => {
-      if(!code) {
-        setStatusTodo('closed');
-        return;
+
+      if(code !== obj?.code) {
+
+          let userClose = confirm("Вы уверены, что хотите закрыть? Написанный код не будет сохранен");
+          if(userClose){
+            setCode('');
+            setTitleTodo('')
+            setOpenTodo('closed');
+            return;
+          }
       }
-      let userClose = confirm("Вы уверены, что хотите закрыть? Написанный код не будет сохранен");
       
-      if(userClose){
-        setCode('');
-        setTitleTodo('')
-        setStatusTodo('closed');
-        return;
-      }
+      
       
     }
 
@@ -126,23 +127,26 @@ const DialogAddTodo:NextPage = ():ReactNode => {
 
         const todoObj:ElementType = {
           code,
-          date: `${new Date()}`,
+          date: obj.date,
           language,
-          note: titleTodo ? titleTodo : "Без имени"
+          note: titleTodo ? titleTodo : obj.note
         }
-        
-        postTodo(todoObj, user_id, todo);
+        let newTod:ElementType[] = todo.map((el:ElementType)=> el.date == obj.date ? todoObj : el)
+        changeTodo( user_id, newTod);
         setCode("");
         setTitleTodo("");
-        setStatusTodo('closed');
+        setOpenTodo('closed');
     }
     
-    
+    useEffect(()=>{
+        setCode(obj?.code);
+        setTitleTodo(obj?.note)
+    },[openTodoStatus])
   return (
-    <Section $status={statusTodo} id="dialog" >
+    <Section $status={openTodoStatus} id="dialog" >
         <div className="contant" onClick={handleCloseWindow} >
             <div className="container" onClick={(e)=>e.stopPropagation()}>
-                <SaveCodeElement handleSandCode={handleSandCode} handleCloseWindow={handleCloseWindow} />
+                <SaveCodeElement handleCloseWindow={()=>setOpenTodo('closed')} handleSandCode={handleSandCode} />
                 <Editor
                     options={{
                     minimap: {
@@ -166,4 +170,4 @@ const DialogAddTodo:NextPage = ():ReactNode => {
 }
 
 
-export default DialogAddTodo
+export default OpenTodo

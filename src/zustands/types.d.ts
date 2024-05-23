@@ -15,6 +15,8 @@ interface UseDialogStatus {
     statusSignin: string,
     statusTodo: string,
     deleteStatus:string,
+    openTodoStatus: string,
+    setOpenTodo: (status:string) => void,
     setDelete: (status:string) => void,
     setStatusTodo: (status:string) => void,
     setStatusLogin: (status:string) => void,
@@ -40,5 +42,6 @@ interface UseAppTodo {
     setSearching: (value:string) => void,
     setUserId: (id:number) => void,
     setTodo: (data:ElementType[]) => void,
+    changeTodo: ( _id:number | null ,todo:ElementType[]) => void,
     postTodo: (obj:TodoObjType, _id:number | null ,todo:ElementType[]) => void
 }

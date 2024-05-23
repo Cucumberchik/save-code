@@ -17,6 +17,20 @@ const useAppTodo = create<UseAppTodo>((set)=>({
     setSearching: (value) => set({searching: value}),
     setUserId: (id) => set({user_id: id}),
     setTodo: (data) => set({todo:data}),
+    changeTodo: async( _id, todo) => {
+        let API:any = process.env.NEXT_PUBLIC_API_URL;
+        set({isLoading: true});
+        try {
+            const {data} = await axios.patch(`${API}/${_id}`,{todo: todo} );
+            let user = data.find((el:UserType)=>el._id == _id);
+            set({todo: user.todo})
+            
+        }
+        finally {
+            set({isLoading: false});
+
+        }
+    },
     postTodo: async(obj, _id, todo) => {
         let API:any = process.env.NEXT_PUBLIC_API_URL;
         set({isLoading: true});

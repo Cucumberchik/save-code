@@ -5,6 +5,8 @@ const useDialogProps = create<UseDialogStatus>((set)=>({
     statusSignin: "disabled",
     statusTodo:"disabled",
     deleteStatus: "disabled",
+    openTodoStatus: "disabled",
+    setOpenTodo: (status) => set({openTodoStatus: status}),
     setDelete: (status) => set({deleteStatus: status}),
     setStatusTodo: (status) => set({statusTodo:status}),
     setStatusSignin: (status) => set({statusSignin:status}),
