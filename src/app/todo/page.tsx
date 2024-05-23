@@ -116,7 +116,11 @@ let Section = styled.section`
         }
         .action_btn {
             display: flex;
+            justify-content: space-between;
             gap: 5px;
+            padding: 7px 20px;
+            width: 100%;
+            border-top: 1px solid var(--border-color);
             button {
                 padding: 5px 10px;
                 border-radius: 5px;
