@@ -5,7 +5,7 @@ import Header from "@/components/header/header";
 
 export const metadata: Metadata = {
   title: "Save-Code",
-  description: "Save-Code - это безопасное и удобное хранилище для вашего кода. Мы понимаем, что каждая строка кода - это результат вашего труда, интеллектуальной энергии и времени. Именно поэтому мы создали Save-Code - чтобы гарантировать сохранность и доступность вашего кода в любое время и в любом месте.",
+  description: "Save-Code - это безопасное и удобное хранилище для вашего кода. savecode",
 };
 
 export default function RootLayout({
