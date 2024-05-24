@@ -23,7 +23,7 @@ const fadeOut = keyframes`
 
 const Section = styled.section<StyledSectionPropsType>`
   cursor: pointer;
-  position: absolute;
+  position: fixed;
   z-index: 20;
   top: 0;
   left: 0;
@@ -35,7 +35,6 @@ const Section = styled.section<StyledSectionPropsType>`
   background-color: ${({ $status }) => ($status === 'opened' || $status === 'closed' ? 'rgba(0, 0, 0, 0.438)' : 'transparent')};
 
   .contant {
-    position: fixed;
     width: 100%;
     height: 100%;
     display: flex;
@@ -48,8 +47,8 @@ const Section = styled.section<StyledSectionPropsType>`
   }
   .container {
     width: 40%;
-    height: 30%;
-    background: var(--gray-background);
+    height: 20%;
+    background: var(--background-200);
     box-shadow: var(--shadow-border-inse);
     border-radius: 8px;
     border: 1px solid var(--gray-alpha-500);
@@ -63,12 +62,18 @@ const Section = styled.section<StyledSectionPropsType>`
         display: flex;
         gap: 30px;
         button {
-            padding: 5px 15px;
+            padding: 8px 20px;
+            border-radius: 8px;
         }
         .delete_btn {
             color: var(--red-600);
             background: none;
             border: 1px solid var(--red-600);
+        }
+        .close_btn {
+          background: var(--gray-alpha-1000);
+          color: black;
+          border: 1px solid var(--gray-alpha-600);
         }
     }
   }
@@ -95,8 +100,16 @@ const DeleteDialog:NextPage<{id:number}> = ({id}):ReactNode => {
                     После удаление кода, его нельзя будет восстоновить 
                 </Typography>
                 <div className="action_btns">
-                    <button onClick={()=>setDelete("closed")} >Отменить</button>
-                    <button onClick={handleDelete} className='delete_btn' >Подтвердить</button>
+                    <button className='close_btn' onClick={()=>setDelete("closed")} >
+                      <Typography variant='body'>
+                        Отменить
+                      </Typography>
+                    </button>
+                    <button onClick={handleDelete} className='delete_btn' >
+                      <Typography variant='body'>
+                        Подтвердить
+                      </Typography>
+                    </button>
                 </div>
             </div>
         </div>
