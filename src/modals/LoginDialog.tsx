@@ -12,13 +12,21 @@ interface StyledSectionPropsType {
     $status: string
 }
 const fadeIn = keyframes`
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    transform: scale(0.9);
+     opacity: 0; }
+  to {
+    transform: scale(1);
+     opacity: 1; }
 `;
 
 const fadeOut = keyframes`
-  from { opacity: 1; }
-  to { opacity: 0; display: none; }
+  from { opacity: 1;
+    transform: scale(1);
+   }
+  to { 
+    transform: scale(0.9);
+     opacity: 0; display: none; }
 `;
 
 const Section = styled.section<StyledSectionPropsType>`

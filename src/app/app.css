@@ -25,8 +25,8 @@
 
     h1 {
         background: var(--text-gradient);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        color: transparent;
         font-weight: 800;
         font-size: max(30px,min(4vw,86px));
         line-height: 1;

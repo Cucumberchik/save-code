@@ -2,7 +2,7 @@ import "./app.css";
 import type { NextPage } from "next";
 import Link from "next/link";
 import type { ReactNode } from "react";
-f;
+
 const Home: NextPage = (): ReactNode => {
   return (
     <main className="home">
