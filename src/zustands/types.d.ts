@@ -47,3 +47,8 @@ interface UseAppTodo {
     changeTodo: ( _id:number | null ,todo:ElementType[]) => void,
     postTodo: (obj:TodoObjType, _id:number | null ,todo:ElementType[]) => void
 }
+
+
+interface UseStateEditorQuery {
+    linkCode: (id:number, date:string) => void
+}
