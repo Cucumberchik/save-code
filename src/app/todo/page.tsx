@@ -31,7 +31,7 @@ let Section = styled.section`
         align-items: center;
         justify-content: space-between;
         .searching {
-            width: 60%;
+            width: 80%;
             border: 1px solid var(--gray-alpha-500);
             display: flex;
             align-items: center;
@@ -48,7 +48,7 @@ let Section = styled.section`
             }
         }
         button {
-            padding: 6px 30px;
+            padding: 6px 35px;
             background: var(--gray-alpha-1000);
             color: black;
             border-radius: 5px;
@@ -120,7 +120,7 @@ const Todo:NextPage = ():ReactNode => {
                         </svg>
                     </div>
                     <button onClick={()=>setStatusTodo('opened')} >
-                        <Typography variant="h5">Добавить</Typography>
+                        <Typography variant="body">Добавить</Typography>
                     </button>
                 </div>
                 {
