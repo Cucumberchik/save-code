@@ -3,7 +3,7 @@ import { useDialogStatus } from '@/zustands/Dialogs'
 import { keyframes } from '@emotion/react'
 import styled from '@emotion/styled'
 import type { NextPage } from 'next'
-import { useEffect, useState, type ReactNode } from 'react'
+import { memo, useCallback, useEffect, useMemo, useState, type ReactNode } from 'react'
 import { Editor } from "@monaco-editor/react";
 import { CODE_SNIPPETS } from '@/constants'
 import useTodo from '@/zustands/todo'
@@ -93,89 +93,73 @@ const Section = styled.section<StyledSectionPropsType>`
     
 `;
 
-const OpenTodo:NextPage<{obj:ElementType}> = ({obj}):ReactNode => {
-    
+const OpenTodo:NextPage = memo(():ReactNode => {
+  const {openTodoStatus, setOpenTodo } = useDialogStatus();
+  const {language, titleTodo, date, user_id, todo,code, setDate, setCode, setTitleTodo, changeTodo} = useTodo();
 
-    const [code, setCode] = useState<string>("");
-    const {openTodoStatus, setOpenTodo } = useDialogStatus();
-    const {language, titleTodo , user_id, todo, setTitleTodo, changeTodo} = useTodo();
-    useEffect(()=>{
-        setCode(obj?.code);
-        setTitleTodo(obj?.note);
-    },[obj?.code])
-
-    const handleCloseWindow = () => {
-
-      if(code !== obj?.code) {
-
-          let userClose = confirm("Вы уверены, что хотите закрыть? Написанный код не будет сохранен");
-          if(userClose){
-            setCode('');
-            setTitleTodo('')
-            setOpenTodo('closed');
-            return;
-          }
-      }
-      
-      
-      
+  const handleCloseWindow = useCallback(()=>{
+    setCode("");
+    setTitleTodo("");
+    setDate("")
+    setOpenTodo('closed');
+  },[code]);
+  
+  const handleSandCode = () => {
+    if(!code){
+      alert('Редактор кода пустой');
+      return;
     }
 
-    const handleSandCode = () => {
-      if(!code){
-        alert('Редактор кода пустой');
-        return;
-      }
-
-        const todoObj:ElementType = {
-          code,
-          date: obj.date,
-          language,
-          note: titleTodo ? titleTodo : obj.note
-        }
-        let newTod:ElementType[] = todo.map((el:ElementType)=> el.date == obj.date ? todoObj : el)
-        changeTodo( user_id, newTod);
-        setCode("");
-        setTitleTodo("");
-        setOpenTodo('closed');
+    const todoObj:ElementType = {
+      code,
+      date,
+      language,
+      note: titleTodo
     }
-    
-   
-  return (
-    <Section $status={openTodoStatus} id="dialog" >
-        <div className="contant" onClick={handleCloseWindow} >
-            <div className="container" onClick={(e)=>e.stopPropagation()}>
-                <SaveCodeElement handleCloseWindow={()=>setOpenTodo('closed')} handleSandCode={handleSandCode} />
-                <Editor
-                    options={{
-                        minimap: {
-                          enabled: false,
-                        },
-                        scrollBeyondLastLine: false,
-                        automaticLayout: true,
-                        scrollbar: {
-                            vertical: 'hidden',
-                            horizontal: 'hidden'
-                        },    
-                        fontSize: 14,
-                        fontFamily: '"Azeret Mono", var(--font-family)',
-                        contextmenu: false,
-                      }}
-                    height="90%"
-                    width="98%"
-                    theme="vs-dark"
-                    language={language}
 
-                    defaultValue={CODE_SNIPPETS[language]}
-                    value={code}
-                    onChange={(value:any) => setCode(value)}
-                />
-                
-            </div>
-        </div>
-    </Section>
-  )
-}
+    let newTod:ElementType[] = todo.map((el:ElementType)=> el.date == date ? todoObj : el)
+    changeTodo( user_id, newTod);
+    setCode("");
+    setTitleTodo("");
+    setOpenTodo('closed');
+  }
+  
+ 
+return (
+  <Section $status={openTodoStatus} id="dialog" >
+      <div className="contant" onClick={handleCloseWindow} >
+          <div className="container" onClick={(e)=>e.stopPropagation()}>
+              <SaveCodeElement handleCloseWindow={handleCloseWindow} handleSandCode={handleSandCode} />
+              <Editor
+                  options={{
+                      minimap: {
+                        enabled: false,
+                      },
+                      scrollBeyondLastLine: false,
+                      automaticLayout: true,
+                      scrollbar: {
+                          vertical: 'hidden',
+                          horizontal: 'hidden'
+                      },    
+                      fontSize: 14,
+                      fontFamily: '"Azeret Mono", var(--font-family)',
+                      contextmenu: false,
+                    }}
+                  height="90%"
+                  width="98%"
+                  theme="vs-dark"
+                  language={language}
+
+                  defaultValue={CODE_SNIPPETS[language]}
+                  value={code}
+                  onChange={(value:any) => setCode(value)}
+              />
+              
+          </div>
+      </div>
+  </Section>
+)
+})
 
 
 export default OpenTodo

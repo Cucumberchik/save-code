@@ -92,13 +92,14 @@ const Section = styled.section<StyledSectionPropsType>`
 `;
 
 const DialogAddTodo:NextPage = ():ReactNode => {
-    const [code, setCode] = useState<string>("");
     const {statusTodo, setStatusTodo } = useDialogStatus();
-    const {language, titleTodo , user_id, todo, setTitleTodo, postTodo} = useTodo();
+    const {language, titleTodo, code, setCode, user_id, todo, setTitleTodo, postTodo} = useTodo();
 
     const handleCloseWindow = () => {
       if(!code) {
         setStatusTodo('closed');
+        setCode('');
+        setTitleTodo('')
         return;
       }
       let userClose = confirm("Вы уверены, что хотите закрыть? Написанный код не будет сохранен");

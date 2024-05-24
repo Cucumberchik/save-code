@@ -175,10 +175,9 @@ let Section = styled.section`
 const Todo:NextPage = ():ReactNode => {
     const {user, loadingUser} = useAuth()
     const [searching, setSearching] = useState("")
-    const { todo} = useTodo();
+    const { todo, setTitleTodo, setDate, setCode} = useTodo();
     const { setStatusTodo, setDelete, setOpenTodo} = useDialogStatus();
     const [idTodo, setIdTodo] = useState<number>(NaN);
-    const [todoObj, setTodoObj] = useState<any>(null)
 
     
     const handleCopyText = (text:string) => {
@@ -192,7 +191,7 @@ const Todo:NextPage = ():ReactNode => {
     <>
         <DialogAddTodo />
         <DeleteDialog id={idTodo}/>
-        <OpenTodo obj={todoObj} />
+        <OpenTodo />
         <Section className="d-f-c" id="todo">
             <div className="container">
                 <div className="info_todo">
@@ -244,7 +243,9 @@ const Todo:NextPage = ():ReactNode => {
                             <div className="action_btn">
                                 <button className="open_btn" onClick={()=>{
                                     setOpenTodo('opened');
-                                    setTodoObj(el)
+                                    setTitleTodo(el.note);
+                                    setCode(el.code);
+                                    setDate(el.date)
                                     }} >
                                     <Typography variant="body">Открыть</Typography>
                                 </button>
@@ -295,7 +296,9 @@ const Todo:NextPage = ():ReactNode => {
                             <div className="action_btn">
                                 <button className="open_btn" onClick={()=>{
                                     setOpenTodo('opened');
-                                    setTodoObj(el)
+                                    setTitleTodo(el.note);
+                                    setCode(el.code);
+                                    setDate(el.date);
                                     }} >
                                     <Typography variant="body">Открыть</Typography>
                                 </button>
