@@ -22,7 +22,7 @@ let Section = styled.section`
         display: flex;
         flex-direction:column;
         align-items: center;
-        gap: 12px;
+        gap: 22px;
     }
     .info_todo {
         width: 80%;
@@ -81,7 +81,7 @@ let Section = styled.section`
 
         .item_title{
             width: 100%;
-            padding: 12px 30px;
+            padding: 5px 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;

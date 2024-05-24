@@ -100,7 +100,8 @@ const OpenTodo:NextPage<{obj:ElementType}> = ({obj}):ReactNode => {
     const {openTodoStatus, setOpenTodo } = useDialogStatus();
     const {language, titleTodo , user_id, todo, setTitleTodo, changeTodo} = useTodo();
     useEffect(()=>{
-        setCode(obj?.code)
+        setCode(obj?.code);
+        setTitleTodo(obj?.note);
     },[obj?.code])
 
     const handleCloseWindow = () => {
