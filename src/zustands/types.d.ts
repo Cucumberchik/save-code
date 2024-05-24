@@ -50,5 +50,11 @@ interface UseAppTodo {
 
 
 interface UseStateEditorQuery {
-    linkCode: (id:number, date:string) => void
+    language: string,
+    sourceCode: string,
+    output: string,
+    setLanguage: (language:string) => void,
+    setSourceCode: (code:string) => void,
+    linkCode: (id:number, date:string) => void,
+    executeCode: (language:string, sourceCode:string) => void
 }

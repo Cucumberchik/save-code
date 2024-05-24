@@ -116,13 +116,11 @@ header .user_info:hover {
         background: transparent;
         border: none;
         color: var(--gray-alpha-900);
-
     }
+    
     button:hover {
         background: var(--gray-alpha-200);
-        
         color: var(--red-850);
-        
     }
 }
 .dropdawn_header {

@@ -1,0 +1,39 @@
+
+
+#editor_page {
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    justify-content: space-between;
+
+    .mtk8 {
+        color: #F75F8F;
+    }
+
+    .mtk22 {
+        color: #BF7AF0;
+    }
+
+    .mtk9.bracket-highlighting-0{
+        color: #EDEDED;
+    }
+
+    .monaco-editor {
+        overflow: scroll;
+        .monaco_diff_editor {
+            --vscode-editor-background: transparent;
+            --vscode-editorGutter-background: transparent;
+        }
+        .monaco-editor-background, .margin {
+            background-color: #101010;
+        }
+    }
+
+    .view-line {
+        span {
+            /* font-size: 15px; */
+            font-weight: 450;
+        }
+    
+    }
+}
