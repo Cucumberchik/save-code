@@ -10,7 +10,7 @@ export const CheckUserProvider:NextPage<ProvidersType> = ({children}) => {
     const {checkUser, user, loadingUser} = useAuth();
     const {setTodo, setUserId} = useTodo();
     
-    const handleCheckUser = useCallback(()=>{
+    const handleCheckUser = useCallback(
         async() => {
             let API:any = process.env.NEXT_PUBLIC_API_URL;
             try{
@@ -32,13 +32,14 @@ export const CheckUserProvider:NextPage<ProvidersType> = ({children}) => {
                     setTodo(todo);
                     setUserId(_id);
                     
+                    
             }catch(e){
                     
             }
             finally{
                     
             }
-        }
+        
     },[loadingUser, user])
     useEffect(()=>{
         checkUser()
