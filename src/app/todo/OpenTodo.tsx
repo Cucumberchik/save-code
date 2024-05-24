@@ -97,13 +97,13 @@ const OpenTodo:NextPage = memo(():ReactNode => {
   const {openTodoStatus, setOpenTodo } = useDialogStatus();
   const {language, titleTodo, date, user_id, todo,code, setDate, setCode, setTitleTodo, changeTodo} = useTodo();
 
-  const handleCloseWindow = useCallback(()=>{
+  const handleCloseWindow = ()=>{
     setCode("");
     setTitleTodo("");
     setDate("")
     setOpenTodo('closed');
-  },[code]);
-  
+  }
+
   const handleSandCode = () => {
     if(!code){
       alert('Редактор кода пустой');
