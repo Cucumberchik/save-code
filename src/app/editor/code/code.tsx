@@ -110,6 +110,7 @@ const CodeEditor:NextPage = ():ReactElement => {
                     horizontal: 'hidden'
                 },    
                 fontSize: 14,
+                renderLineHighlight: "none",
                 fontFamily: '"Azeret Mono", var(--font-family)',
             }}
             height="95%"
