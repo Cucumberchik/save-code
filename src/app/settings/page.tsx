@@ -2,7 +2,8 @@
 import Typography from "@/typography/typogrpahy";
 import styled from "@emotion/styled";
 import type { NextPage } from "next";
-import type { ReactNode } from "react";
+import { type ReactNode } from "react";
+import DefaultLanguage from "./set/DefaultLanguage";
 
 const Section = styled.section`
     width: 100%;
@@ -28,12 +29,14 @@ const Section = styled.section`
 
 const Settings:NextPage = ():ReactNode => {
 
+    
     return (
         <Section className="d-f-c">
             <div className="container">
                 <div className="setting_info">
                     <Typography variant="h2">Настройки</Typography>
                 </div>
+                <DefaultLanguage />
             </div>
         </Section>
     )

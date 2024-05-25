@@ -9,7 +9,7 @@ const API = axios.create({
 
 
 const useStateEditorQuery = create<UseStateEditorQuery>((set)=>({
-    language: "javascript",
+    language: localStorage.getItem("default_language") || "javascript",
     sourceCode: "",
     output: null,
     setLanguage: (language) => set({language}),
