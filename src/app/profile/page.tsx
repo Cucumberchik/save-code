@@ -22,8 +22,8 @@ const Profile:NextPage = ():ReactNode => {
         </Section>
     ) : (
         <Section>
-            <div className="container">
-                
+            <div style={{width: "100%", height: "80vh", display: "flex", alignItems: 'center', justifyContent: "center"}}>
+                <Building />
             </div>
         </Section>
     )

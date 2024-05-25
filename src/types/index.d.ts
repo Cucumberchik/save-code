@@ -15,3 +15,11 @@ interface UserType {
     todo:ElementType[]
 }
 
+
+interface OutputType {
+    code:number,
+    output:string,
+    signal:null,
+    stderr:string,
+    stdout:string
+}

@@ -11,7 +11,7 @@ const API = axios.create({
 const useStateEditorQuery = create<UseStateEditorQuery>((set)=>({
     language: "javascript",
     sourceCode: "",
-    output: "",
+    output: null,
     setLanguage: (language) => set({language}),
     setSourceCode: (code) => set({sourceCode:code}),
     linkCode: async(id, date) => {
@@ -27,7 +27,7 @@ const useStateEditorQuery = create<UseStateEditorQuery>((set)=>({
               },
             ],
           });
-          set({output: data.run.output})
+          set({output: data.run})
     }
 }));
 

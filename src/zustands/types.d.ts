@@ -48,11 +48,12 @@ interface UseAppTodo {
     postTodo: (obj:TodoObjType, _id:number | null ,todo:ElementType[]) => void
 }
 
+i
 
 interface UseStateEditorQuery {
     language: string,
     sourceCode: string,
-    output: string,
+    output: null | OutputType,
     setLanguage: (language:string) => void,
     setSourceCode: (code:string) => void,
     linkCode: (id:number, date:string) => void,
