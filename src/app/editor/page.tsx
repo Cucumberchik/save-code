@@ -1,11 +1,20 @@
-import Building from "@/components/building/building"
+'use server'
+import { NextPage } from "next";
+import { ReactNode } from "react";
+import CodeEditor from "./code/code";
+import "./style.css"
+import CodeOutput from "./output/output";
 
+const EditorPage:NextPage = ():ReactNode => {
 
-const Page = () => {
-
-    return <div style={{width: "100%", height: "80vh", display: "flex", alignItems: 'center', justifyContent: "center"}}>
-    <Building />
-    </div>
+   
+    
+    return (
+        <section id="editor_page">
+            <CodeEditor />
+            <CodeOutput />
+        </section>
+    )
 }
 
-export default Page
+export default EditorPage

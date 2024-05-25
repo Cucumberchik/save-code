@@ -141,8 +141,7 @@ const TodoCard:NextPage<{el:ElementType, idx:number, setIdTodo:(id:number)=>void
                 height={`${22 * el.code.split("\n").length}px`}
                 theme="vs-dark"
                 language={el.language}
-                value={el.code}
-                
+                value={el.code} 
             />
         </div>
         <div className="action_btn">
