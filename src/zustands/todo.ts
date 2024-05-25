@@ -1,7 +1,6 @@
+'use client'
 import axios from "axios";
 import { create } from "zustand";
-
-
 
 const useAppTodo = create<UseAppTodo>((set)=>({
     user_id: null,

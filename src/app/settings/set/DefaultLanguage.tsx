@@ -1,5 +1,6 @@
 'use client'
 import Typography from "@/typography/typogrpahy"
+import useTodo from "@/zustands/todo"
 import styled from "@emotion/styled"
 import { NextPage } from "next"
 import { ReactNode, useState } from "react"
@@ -36,7 +37,8 @@ const DefaultLanguage:NextPage = ():ReactNode => {
     const [defaultLanguage, setDefaultLanguage] = useState(localStorage.getItem("default_language") || 'javascript')
     const handleSaveLanguage = () => {
         localStorage.setItem("default_language", defaultLanguage);
-        setStorageLanguage(defaultLanguage)
+        setStorageLanguage(defaultLanguage);
+        window.location.reload()
     }
     const languages:LanguagesType[]= [
         {language: "javascript", title: "Javascript"},
