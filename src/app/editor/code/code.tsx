@@ -9,7 +9,7 @@ import Typography from "@/typography/typogrpahy";
 import { LANGUAGE_VERSIONS } from "@/constants";
 
 const Div = styled.div`
-    width: 45%;
+    width: 60%;
     height: 95%;
     display: flex;
     flex-direction: column;

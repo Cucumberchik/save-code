@@ -6,7 +6,7 @@ import type { NextPage } from "next";
 import type { ReactElement } from "react";
 
 const Div = styled.div`
-    width: 45%;
+    width: 35%;
     height: 95%;
 
     border: 1px solid var(--gray-alpha-500);
@@ -20,7 +20,7 @@ const Div = styled.div`
         border-bottom: 1px solid var(--gray-alpha-500);
         display: flex;
         align-items: center;
-        gap: 30px;
+        justify-content: space-between;
         padding: 0 30px;
 
         button {
