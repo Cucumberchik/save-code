@@ -17,7 +17,6 @@ const Card = styled.div`
     width: 80%;
     border: 1.4px solid var(--border-color);
     border-radius: 10px;
-    padding: 5px 0px;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -27,6 +26,9 @@ const Card = styled.div`
     .code_block {
         position: relative;
         width: 100%;
+        canvas {
+            display: none;
+        }
     }
 
     .item_title{
@@ -35,6 +37,7 @@ const Card = styled.div`
         display: flex;
         justify-content: space-between;
         align-items: center;
+        background: var(--gray-alpha-100);
         border-bottom: 1px solid var(--border-color);
         button {
             display: flex;
@@ -54,7 +57,10 @@ const Card = styled.div`
             }
         }
     }
-    
+    .monaco-editor .view-line:focus {
+  outline: none;
+  border: none;
+}
     .name_todo {
             display: flex;
             flex-direction: column;
@@ -129,7 +135,6 @@ const TodoCard:NextPage<{el:ElementType, idx:number, setIdTodo:(id:number)=>void
                     },
                     readOnly:true,
                     scrollBeyondLastLine: false,
-                    automaticLayout: true,
                     scrollbar: {
                         vertical: 'hidden',
                         horizontal: 'hidden'
@@ -137,6 +142,8 @@ const TodoCard:NextPage<{el:ElementType, idx:number, setIdTodo:(id:number)=>void
                     fontSize: 14,
                     fontFamily: '"Azeret Mono", var(--font-family)',
                     contextmenu: false,
+                    overviewRulerLanes: 0,
+                    renderLineHighlight: "none"
                 }}
                 height={`${22 * el.code.split("\n").length}px`}
                 theme="vs-dark"
