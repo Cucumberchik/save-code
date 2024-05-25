@@ -24,7 +24,7 @@ const Home: NextPage = (): ReactNode => {
         <div className="links_services">
           <Link href="/todo">Сохранить код</Link>
           <Link
-            href="https://javascript-code-editor.vercel.app/"
+            href="/editor"
             target="_blank"
           >
             Наш редактор код
