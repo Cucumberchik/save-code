@@ -1,4 +1,4 @@
-
+'use client'
 import { LANGUAGE_VERSIONS } from "@/constants";
 import axios from "axios";
 import { create } from "zustand";
@@ -9,7 +9,7 @@ const API = axios.create({
 
 
 const useStateEditorQuery = create<UseStateEditorQuery>((set)=>({
-    language: localStorage.getItem("default_language") || "javascript",
+    language: "javascript",
     sourceCode: "",
     output: null,
     setLanguage: (language) => set({language}),
