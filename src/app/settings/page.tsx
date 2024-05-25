@@ -1,3 +1,4 @@
+
 'use client'
 import Typography from "@/typography/typogrpahy";
 import styled from "@emotion/styled";
@@ -29,7 +30,6 @@ const Section = styled.section`
 
 const Settings:NextPage = ():ReactNode => {
 
-    
     return (
         <Section className="d-f-c">
             <div className="container">
@@ -40,6 +40,7 @@ const Settings:NextPage = ():ReactNode => {
             </div>
         </Section>
     )
+
 }
 
 export default Settings
