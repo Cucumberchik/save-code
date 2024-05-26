@@ -1,6 +1,6 @@
 'use client'
 import Typography from "@/typography/typogrpahy"
-import "./style.css"
+import "./style.scss"
 import { NextPage } from "next"
 import { ReactNode } from "react"
 import Link from "next/link"
