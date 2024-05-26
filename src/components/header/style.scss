@@ -19,8 +19,18 @@ header {
         display: flex;
         align-items: center;
         gap: 20px;
+
         a {
             color: var(--gray-alpha-1000);
+        }
+
+        .link_navigation {
+            transition: 0.15s;
+            color: var(--gray-alpha-900);
+
+            &:hover {
+                color: var(--gray-alpha-1000);
+            }
         }
     }
 
