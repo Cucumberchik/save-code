@@ -10,7 +10,7 @@ const useDialogProps = create<UseDialogStatus>((set)=>({
     setDelete: (status) => set({deleteStatus: status}),
     setStatusTodo: (status) => set({statusTodo:status}),
     setStatusSignin: (status) => set({statusSignin:status}),
-    setStatusLogin: (status) => set({statusLogin:status})
+    setStatusLogin: (status) => set({statusLogin:status}),
 }))
 
 export const useDialogStatus = () => useDialogProps(state=>state)

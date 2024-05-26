@@ -7,16 +7,12 @@ const API = axios.create({
     baseURL: "https://emkc.org/api/v2/piston",
   });
 
-
 const useStateEditorQuery = create<UseStateEditorQuery>((set)=>({
     language: "javascript",
     sourceCode: "",
     output: null,
     setLanguage: (language) => set({language}),
     setSourceCode: (code) => set({sourceCode:code}),
-    linkCode: async(id, date) => {
-
-    },
     executeCode: async(language, sourceCode) => {
         const {data} = await API.post("/execute", {
             language: language,

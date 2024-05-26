@@ -56,6 +56,5 @@ interface UseStateEditorQuery {
     output: null | OutputType,
     setLanguage: (language:string) => void,
     setSourceCode: (code:string) => void,
-    linkCode: (id:number, date:string) => void,
     executeCode: (language:string, sourceCode:string) => void
 }
