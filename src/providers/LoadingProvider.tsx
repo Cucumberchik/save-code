@@ -5,9 +5,6 @@ import useTodo from "@/zustands/todo";
 import { NextPage } from "next";
 import { ReactNode, useEffect } from "react";
 
-
-
-
 const LoadingProvider:NextPage<ProvidersType> = ({children}):ReactNode => {
     const {setLanguage, } = useEditor();
     const {loadingUser}  = useAuth();

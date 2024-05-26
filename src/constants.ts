@@ -1,11 +1,3 @@
-interface LANGUAGE_TYPE {
-    javascript: string,
-    typescript: string,
-    python: string,
-    java: string,
-    csharp: string,
-    php: string,
-}
 
 export const LANGUAGE_VERSIONS:any = {
     javascript: "18.15.0",
