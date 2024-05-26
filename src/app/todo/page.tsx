@@ -1,106 +1,23 @@
 'use client'
-
 import Typography from "@/typography/typogrpahy"
 import { useDialogStatus } from "@/zustands/Dialogs"
 import useTodo from "@/zustands/todo"
-import styled from "@emotion/styled"
 import { NextPage } from "next"
-import { ReactNode, useRef, useState } from "react"
+import { ReactNode, useState } from "react"
 import DialogAddTodo from "./dialogs/AddTodo"
 import DeleteDialog from "./dialogs/delete"
 import OpenTodo from "./dialogs/open"
 import useAuth from "@/zustands/auth"
 import TodoCard from "./TodoCard"
+import "./todo.scss"
 
-let Section = styled.section`
-    width: 100%;
-    /* height: 100vh; */
-    
-    .container {
-        width: var(--container-size);
-        height: 100%;
-        display: flex;
-        flex-direction:column;
-        align-items: center;
-        gap: 22px;
-    }
-    .info_todo {
-        width: 80%;
-        height: 50px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        .searching {
-            width: 80%;
-            border: 1px solid var(--gray-alpha-500);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 5px;
-            border-radius: 5px;
-            input {
-                width: 100%;
-                height: 35px;
-                padding: 0 10px;
-                border: none;
-                background: none;
-                outline: none;
-            }
-        }
-        button {
-            padding: 6px 35px;
-            background: var(--gray-alpha-1000);
-            color: black;
-            border-radius: 5px;
-            border: none;
-            &:hover {
-                background: var(--gray-alpha-950);
-            }
-        }
-    }
-    
-    .mtk8 {
-        color: #F75F8F;
-    }
-
-    .mtk22 {
-        color: #BF7AF0;
-    }
-
-    .mtk9.bracket-highlighting-0{
-        color: #EDEDED;
-    }
-
-    .monaco-editor {
-        overflow: scroll;
-        .monaco_diff_editor {
-            --vscode-editor-background: transparent;
-            --vscode-editorGutter-background: transparent;
-        }
-        .monaco-editor-background, .margin {
-            background-color: #101010;
-        }
-    }
-
-    .view-line {
-        span {
-            /* font-size: 15px; */
-            font-weight: 400;
-        }
-    
-    }
-`
 const Todo:NextPage = ():ReactNode => {
     const {user, loadingUser} = useAuth()
     const [searching, setSearching] = useState("")
-    const { todo, setTitleTodo, setDate, setCode} = useTodo();
-    const { setStatusTodo, setDelete, setOpenTodo} = useDialogStatus();
+    const {todo} = useTodo();
+    const {setStatusTodo} = useDialogStatus();
     const [idTodo, setIdTodo] = useState<number>(NaN);
 
-    
-    const handleCopyText = (text:string) => {
-        navigator.clipboard.writeText(text)
-    }
     
     return !loadingUser && user === null ?
     <div style={{width: '100%', display:"flex", justifyContent: "center"}}>
@@ -110,7 +27,7 @@ const Todo:NextPage = ():ReactNode => {
         <DialogAddTodo />
         <DeleteDialog id={idTodo}/>
         <OpenTodo />
-        <Section className="d-f-c" id="todo">
+        <section className="d-f-c" id="todo">
             <div className="container">
                 <div className="info_todo">
                     <div className="searching">
@@ -132,7 +49,7 @@ const Todo:NextPage = ():ReactNode => {
                 }
                 
             </div>
-        </Section>
+        </section>
     </>
     )
 }

@@ -2,13 +2,11 @@
 import { NextPage } from "next";
 import { ReactNode } from "react";
 import CodeEditor from "./code/code";
-import "./style.css"
+import "./style.scss"
 import CodeOutput from "./output/output";
 
 const EditorPage:NextPage = ():ReactNode => {
 
-   
-    
     return (
         <section id="editor_page">
             <CodeEditor />
