@@ -1,6 +1,5 @@
 'use client'
 import Typography from "@/typography/typogrpahy"
-import useTodo from "@/zustands/todo"
 import styled from "@emotion/styled"
 import { NextPage } from "next"
 import { ReactNode, useState } from "react"
