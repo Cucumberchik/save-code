@@ -1,0 +1,13 @@
+.profile_layout {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.builder_div {
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    alignItems: center;
+    justifyContent: center;
+}

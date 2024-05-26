@@ -38,3 +38,108 @@
     
     }
 }
+
+.window_layout {
+
+    border: 1px solid var(--gray-alpha-500);
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.layout_info {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    background: var(--gray-alpha-100);
+    border-bottom: 1px solid var(--gray-alpha-500);
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 0 30px;
+}
+
+.editor_code {
+    width: 60%;
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .layout_info {
+        
+        .change_language {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        button {
+            background: transparent;
+            color: var(--gray-alpha-900);
+            border: 1px solid var(--gray-alpha-900);
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+
+        .dropdawn_language {
+            position: absolute;
+            z-index: 21;
+            top: 0;
+        }
+        .dropdawn_language.disabled {
+            display: none;
+        }
+        .dropdawn_language.closed {
+            animation: closeDropdawnLanguage 0.3s ease-in-out forwards;
+        }
+        .dropdawn_language.opened {
+            animation: openDropdawnLanguage 0.3s ease-in-out forwards;
+        }
+    }
+
+    .monaco-editor .view-line:focus {
+        outline: none;
+    }
+}
+
+.output_layout {
+    width: 35%;
+    height: 95%;
+
+
+    .layout_info {
+
+        button {
+            background: var(--gray-alpha-1000);
+            transition: 0.15s;
+            color: black;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            &:hover {
+                background: var(--gray-alpha-950);
+            }
+        }
+    }
+    .output_code {
+       display: flex;
+       flex-direction: column;
+       gap: 5px;
+        .view_line {
+            display: flex;
+            padding: 5px 10px;
+            gap: 10px;
+            width: 100%;
+            border-bottom: 1px solid var(--gray-alpha-300);
+
+            span {
+                font-size: 16px;
+                color: var(--gray-alpha-1000);
+                font-family: var(--font-family);
+                font-weight: 500;
+            }
+        }
+        .numbers_line {
+            width: 20px;
+        }
+    }
+}
