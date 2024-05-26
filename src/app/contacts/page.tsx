@@ -1,5 +1,5 @@
 'use client'
-import css from "/contacts.module.css"
+import css from "./contacts.module.css"
 import Building from "@/components/building/building"
 import Typography from "@/typography/typogrpahy"
 import useAuth from "@/zustands/auth"
