@@ -25,7 +25,7 @@ const Home: NextPage = (): ReactNode => {
           </div>
         </div>
         <div className="color_line_light">
-          <Image src={backdrop} alt="liner cube" />
+          {/* <Image src={backdrop} alt="liner cube" /> */}
           <div className="redial_accent"></div>
         </div>
         <div className="editor_info">
