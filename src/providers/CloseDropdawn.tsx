@@ -19,10 +19,8 @@ const CloseDropdawn:NextPage<ProvidersType> = ({children}):ReactNode => {
         setIsHeaderDropdawn('close')
     }
     return (
-    <body >
-        <main onClick={handleCloseDropdawn}>
-            {children}
-        </main>
+    <body onClick={handleCloseDropdawn}>
+        {children}
     </body>
     )
 }
