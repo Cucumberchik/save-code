@@ -1,0 +1,44 @@
+.docs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: var(--container-size);
+    }
+
+    .navgition {
+        width: 100%;
+        height: 30px;
+        display: flex;
+        justify-content: space-evenly;
+
+        button {
+            transition: 0.21s;
+            width: 20%;
+            background: none;
+            border: none;
+            color: var(--gray-alpha-900);
+
+            &:hover {
+                color: var(--gray-alpha-950);
+
+            }
+            
+        }
+        .active {
+            color: var(--gray-alpha-1000);
+        }
+    }
+
+    .contant {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+}

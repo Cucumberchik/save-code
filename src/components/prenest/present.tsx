@@ -18,15 +18,15 @@ export const Present:NextPage = ():ReactNode => {
             vertical: 'hidden',
              horizontal: 'hidden'
         },    
-        fontSize: 20,
-        fontFamily: '"Azeret Mono", var(--font-family)',
+        fontSize: 18,
+        fontFamily: '"Fira Code"',
         contextmenu: false,
         overviewRulerLanes: 0,
         renderLineHighlight: "none"
         }}
-                  height={`${32 * code.split("\n").length}px`}
-                  theme="vs-dark"
-                  language='javascript'
+    height={`${32 * code.split("\n").length}px`}
+    theme="vs-dark"
+    language='javascript'
     value={code} 
     />
   )

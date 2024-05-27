@@ -18,22 +18,37 @@ const Docs:NextPage = ():ReactNode => {
     {
       link: "Вступление",
       page: "introduction"
-    }
+    },
+    {
+      link: "Редактор кода",
+      page: "editor"
+    },
+    {
+      link: "Заметки",
+      page: "todo"
+    },
+    {
+      link: "Настройки",
+      page: "setting"
+    },
+
   ]
 
-  const pages:ReactNode[] = [
-    <Introduction/>
-  ]
+  
   return (
-    <section className={css.docs}>
+    <section id="docs" className={css.docs}>
       <div className={css.container}>
-        <aside>
-          <div className={css.navigation}>
+        <nav className={css.navgition} >
             {links.map((el:LinkType, idx:number)=>(
-              <button className={idx == routing ? "active" : ""} key={idx} >{el.link}</button>
+              <button 
+                className={"text_16_400 " + (idx == routing ? css.active : "")} 
+                key={idx} 
+                onClick={()=>setRouting(idx)}
+              >
+                {el.link
+              }</button>
             ))}
-          </div>
-        </aside>
+        </nav>
         <div className={css.contant}>
           
         </div>
