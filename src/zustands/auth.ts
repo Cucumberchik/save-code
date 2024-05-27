@@ -71,6 +71,15 @@ const useAuthUser = create<UseAuthUser>((set) => ({
         } catch (e:any) {
             set({ error: { state: true, message: e.message } });
         }
+    },
+    signInGithubProvider: async () => {
+        const provider = new GoogleAuthProvider();
+        try {
+            await signInWithRedirect(auth, provider);
+            await getRedirectResult(auth);
+        } catch (e:any) {
+            set({ error: { state: true, message: e.message } });
+        }
     }
 }));
 

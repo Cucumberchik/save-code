@@ -9,6 +9,7 @@ interface UseAuthUser {
     signOutUser:()=> void,
     checkUser:()=>void,
     signInGoogleProvider: ()=>void,
+    signInGithubProvider: ()=>void,
 }
 interface UseDialogStatus {
     statusLogin: string,
