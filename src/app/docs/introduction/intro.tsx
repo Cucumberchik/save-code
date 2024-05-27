@@ -3,7 +3,7 @@ import { NextPage } from "next"
 import { ReactNode } from "react"
 import css from "../docs.module.scss"
 
-const Introduction:NextPage = ():ReactNode => {
+export const Introduction:NextPage = ():ReactNode => {
   return (
     <article className={css.article}>
         <div className={css.article_contant}>
@@ -50,4 +50,3 @@ const Introduction:NextPage = ():ReactNode => {
   )
 }
 
-export default Introduction

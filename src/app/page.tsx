@@ -1,11 +1,8 @@
-
+'use server'
 import "./app.scss";
-import backdrop from "@/assets/liner_cube/Group 62.png"
 import type { NextPage } from "next";
-import type { ReactNode } from "react";
-import Image from "next/image";
+import type { ReactNode } from "react"
 import { Shaters } from "@/components/shaters/Shaters";
-import { Editor } from "@monaco-editor/react";
 import { Present } from "@/components/prenest/present";
 
 const Home: NextPage = (): ReactNode => {
