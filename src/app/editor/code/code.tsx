@@ -1,6 +1,6 @@
 'use client'
 import { Editor } from "@monaco-editor/react";
-import {useCallback, useState} from "react"
+import { useState} from "react"
 import type { NextPage } from "next";
 import type { ReactElement } from "react";
 import useEditor from "@/zustands/editor";
@@ -15,7 +15,7 @@ const CodeEditor:NextPage = ():ReactElement => {
         setSourceCode(value)
     }
     const indexLanguage = Object.keys(LANGUAGE_VERSIONS).findIndex((el:string)=>el == language);
-    
+
 
     return (
     <div className="editor_code window_layout">
