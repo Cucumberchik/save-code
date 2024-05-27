@@ -160,7 +160,7 @@
     }    
 
     .shater {
-        width: 190px;
+        width: 210px;
         height: 80px;
         background: #35353550;
         backdrop-filter: blur(40px);
@@ -171,7 +171,7 @@
         gap: 20px;
         border: 1px solid var(--gray-alpha-700);
         position: absolute;
-        left: max(calc(300px * 8), 100%);
+        left: max(calc(330px * 8), 100%);
         animation-name: scrollLeft;
         animation-duration: 30s;
         animation-timing-function: linear;
