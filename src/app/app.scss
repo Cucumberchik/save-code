@@ -160,7 +160,7 @@
     }    
 
     .shater {
-        width: 200px;
+        width: 190px;
         height: 80px;
         background: #35353550;
         backdrop-filter: blur(40px);
@@ -171,7 +171,7 @@
         gap: 20px;
         border: 1px solid var(--gray-alpha-700);
         position: absolute;
-        left: max(calc(220px * 8), 100%);
+        left: max(calc(300px * 8), 100%);
         animation-name: scrollLeft;
         animation-duration: 30s;
         animation-timing-function: linear;
@@ -185,27 +185,55 @@
     }
 
     .shater_1 {
-        animation-delay: calc(30s / 8 * (8 - 1) * -1);
+        animation-delay: calc(30s / 13 * (13 - 1) * -1);
     }
           
     .shater_2 {
-        animation-delay: calc(30s / 8 * (8 - 2) * -1);
+        animation-delay: calc(30s / 13 * (13 - 2) * -1);
     }
           
     .shater_3 {
-        animation-delay: calc(30s / 8 * (8 - 3) * -1);
+        animation-delay: calc(30s / 13 * (13 - 3) * -1);
     }
           
     .shater_4 {
-        animation-delay: calc(30s / 8 * (8 - 4) * -1);
+        animation-delay: calc(30s / 13 * (13 - 4) * -1);
     }
           
     .shater_5 {
-        animation-delay: calc(30s / 8 * (8 - 5) * -1);
+        animation-delay: calc(30s / 13 * (13 - 5) * -1);
     }
           
     .shater_6 {
-        animation-delay: calc(30s / 8 * (8 - 6) * -1);
+        animation-delay: calc(30s / 13 * (13 - 6) * -1);
+    }
+
+    .shater_7 {
+        animation-delay: calc(30s / 13 * (13 - 7) * -1);
+    }
+
+    .shater_8 {
+        animation-delay: calc(30s / 13 * (13 - 8) * -1);
+    }
+
+    .shater_9 {
+        animation-delay: calc(30s / 13 * (13 - 9) * -1);
+    }
+
+    .shater_10 {
+        animation-delay: calc(30s / 13 * (13 - 10) * -1);
+    }
+
+    .shater_11 {
+        animation-delay: calc(30s / 13 * (13 - 11) * -1);
+    }
+
+    .shater_12 {
+        animation-delay: calc(30s / 13 * (13 - 12) * -1);
+    }
+
+    .shater_13 {
+        animation-delay: calc(30s / 13 * (13 - 13) * -1);
     }
 }
 
