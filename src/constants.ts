@@ -16,19 +16,19 @@ export const LANGUAGE_VERSIONS: any = {
 };
   
 export const CODE_SNIPPETS:any = {
-  javascript: "",
-  typescript: "",
-  python: "",
-  java: "",
-  csharp: "",
-  php: "",
-  cpp: "",
-  ruby: "",
-  swift: "",
-  rust: "",
-  dart: "",
-  go: "",
-  kotlin: "",
+  Javascript: "",
+  Typescript: "",
+  Python: "",
+  Java: "",
+  'C#': "",
+  PHP: "",
+  'C++': "",
+  Ruby: "",
+  Swift: "",
+  Rust: "",
+  Dart: "",
+  Go: "",
+  Kotlin: "",
 };
   
 
