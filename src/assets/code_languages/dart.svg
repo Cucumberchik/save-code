@@ -1,0 +1,24 @@
+<svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_102_5)">
+<g filter="url(#filter0_b_102_5)">
+<rect width="70" height="70" rx="9" fill="white" fill-opacity="0.15"/>
+<rect x="0.5" y="0.5" width="69" height="69" rx="8.5" stroke="url(#paint0_linear_102_5)"/>
+</g>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M48.9422 51.2683L47.2437 56.371L31.8874 56.7846L24.2923 48.499V26.6184L48.9422 51.2683ZM50.9102 49.0603L26.1422 24.2923H48.4991L56.7846 31.8873L56.3711 47.2399L50.9102 49.0603ZM21.3385 23.8529V43.7138L19.4406 43.0898L13.2154 36.0375L21.3385 23.8529ZM43.7138 21.3384H23.8529L36.0375 13.2153L43.0898 19.4406L43.7138 21.3384Z" fill="#26A2C1"/>
+</g>
+<defs>
+<filter id="filter0_b_102_5" x="-80" y="-80" width="230" height="230" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feGaussianBlur in="BackgroundImageFix" stdDeviation="40"/>
+<feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_102_5"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_102_5" result="shape"/>
+</filter>
+<linearGradient id="paint0_linear_102_5" x1="25" y1="-35.5" x2="101.379" y2="9.46526" gradientUnits="userSpaceOnUse">
+<stop stop-color="#26A2C1" stop-opacity="0.59"/>
+<stop offset="1" stop-color="#26A2C1" stop-opacity="0"/>
+</linearGradient>
+<clipPath id="clip0_102_5">
+<rect width="70" height="70" fill="white"/>
+</clipPath>
+</defs>
+</svg>

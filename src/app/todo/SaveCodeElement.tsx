@@ -15,11 +15,8 @@ const SaveCodeElement:NextPage<{handleSandCode:()=>void, handleCloseWindow:()=>v
         setLanguage,
         setTitleTodo
     } = useTodo();
-
-    
     const indexLanguage = Object.keys(LANGUAGE_VERSIONS).findIndex((item:string)=>item == language);
     
-    const languages = ["javascript","typescript","python","java","csharp","php"]
     return (
         <div className="info_save_code">
             <button className="change_language" onClick={()=>setdropdawnLanguage('oped')} >
@@ -35,7 +32,6 @@ const SaveCodeElement:NextPage<{handleSandCode:()=>void, handleCloseWindow:()=>v
                         setLanguage(el)
                         }}>
                             {Object.keys(CODE_SNIPPETS)[idx]}
-                            
                     </li>
                 ))}
             </ul>

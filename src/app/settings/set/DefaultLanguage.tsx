@@ -1,4 +1,5 @@
 'use client'
+import { CODE_SNIPPETS, LANGUAGE_VERSIONS } from "@/constants"
 import Typography from "@/typography/typogrpahy"
 import styled from "@emotion/styled"
 import { NextPage } from "next"
@@ -39,15 +40,6 @@ const DefaultLanguage:NextPage = ():ReactNode => {
         setStorageLanguage(defaultLanguage);
         window.location.reload()
     }
-    const languages:LanguagesType[]= [
-        {language: "javascript", title: "Javascript"},
-        {language: "typescript", title: "Typescript"},
-        {language: "python", title: "Python"},
-        {language: "java", title: "Java"},
-        {language: "csharp", title: "Csharp"},
-        {language: "php", title: "PHP"},
-
-    ]
     return (
     <Div className="settings_item">
         <Typography variant="h4">
@@ -55,9 +47,9 @@ const DefaultLanguage:NextPage = ():ReactNode => {
         </Typography>
         <div className="setting_change_language">
             <select onChange={(e)=>setDefaultLanguage(e.target.value)} name="change_default_language" id="" defaultValue={defaultLanguage}>
-                {languages.map((el:LanguagesType, idx:number)=>(
-                    <option value={el.language} key={idx}>
-                        {el.title}
+                {Object.keys(LANGUAGE_VERSIONS).map((el:string, idx:number)=>(
+                    <option value={el} key={idx}>
+                        {Object.keys(CODE_SNIPPETS)[idx]}
                     </option>
                 ))}   
             </select>
