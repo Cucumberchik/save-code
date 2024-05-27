@@ -83,8 +83,7 @@ const Section = styled.section<StyledSectionPropsType>`
 
   .view-line {
     span {
-      font-weight: 430;
-      letter-spacing: .5px;
+      font-weight: 490;
     }
     
   }
@@ -149,8 +148,8 @@ return (
                         vertical: 'hidden',
                         horizontal: 'hidden'
                     },    
-                    fontSize: 14,
-                    fontFamily: '"Azeret Mono", var(--font-family)',
+                    fontSize: 16,
+                    fontFamily: '"Fira Code"',
                     contextmenu: false,
                   }}
                   height="90%"

@@ -55,9 +55,9 @@ const CodeEditor:NextPage = ():ReactElement => {
                     vertical: 'hidden',
                     horizontal: 'hidden'
                 },    
-                fontSize: 14,
+                fontSize: 16,
                 renderLineHighlight: "none",
-                fontFamily: '"Azeret Mono", var(--font-family)',
+                fontFamily: '"Fira Code"',
             }}
             height="95%"
             theme="vs-dark"
