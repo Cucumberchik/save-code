@@ -1,4 +1,5 @@
 "use client"
+import { CODE_SNIPPETS, LANGUAGE_VERSIONS } from "@/constants";
 import Typography from "@/typography/typogrpahy";
 import useTodo from "@/zustands/todo";
 import { NextPage } from "next";
@@ -16,24 +17,26 @@ const SaveCodeElement:NextPage<{handleSandCode:()=>void, handleCloseWindow:()=>v
     } = useTodo();
 
     
+    const indexLanguage = Object.keys(LANGUAGE_VERSIONS).findIndex((item:string)=>item == language);
     
     const languages = ["javascript","typescript","python","java","csharp","php"]
     return (
         <div className="info_save_code">
             <button className="change_language" onClick={()=>setdropdawnLanguage('oped')} >
                 <Typography variant="body">
-                    {language}
+                    {Object.keys(CODE_SNIPPETS)[indexLanguage]}
                 </Typography>
             </button>
            <div className={"dropdawn dropdawn_add_todo " + dropdawnLanguage} onClick={(e)=>e.stopPropagation()} >
             <ul>
-                {languages.map((el:string, idx:number)=>(
-                    <button className="dropdawn_item" key={idx} onClick={()=>{
+                {Object.keys(LANGUAGE_VERSIONS).map((el:string, idx:number)=>(
+                    <li key={idx}  className="title_16_500" onClick={()=>{
                         setdropdawnLanguage('close');
                         setLanguage(el)
-                    }}>
-                        {el}
-                    </button>
+                        }}>
+                            {Object.keys(CODE_SNIPPETS)[idx]}
+                            
+                    </li>
                 ))}
             </ul>
            </div>

@@ -1,4 +1,5 @@
 'use client'
+import { CODE_SNIPPETS, LANGUAGE_VERSIONS } from "@/constants";
 import Typography from "@/typography/typogrpahy";
 import { useDialogStatus } from "@/zustands/Dialogs";
 import useTodo from "@/zustands/todo";
@@ -10,10 +11,8 @@ import { ReactNode } from "react";
 const TodoCard:NextPage<{el:ElementType, idx:number, setIdTodo:(id:number)=>void}> = ({el, idx, setIdTodo}):ReactNode => {
     const { setTitleTodo, setDate, setCode} = useTodo();
     const { setDelete, setOpenTodo} = useDialogStatus();
-
-    const handleCopyText = (text:string) => {
-        navigator.clipboard.writeText(text)
-    }
+    const handleCopyText = (text:string) => navigator.clipboard.writeText(text)
+    const indexLanguage = Object.keys(LANGUAGE_VERSIONS).findIndex((item:string)=>item == el.language);
     
     return (
     <div className="todo_item">
@@ -22,7 +21,7 @@ const TodoCard:NextPage<{el:ElementType, idx:number, setIdTodo:(id:number)=>void
                 <Typography variant="h4" >{el.note} </Typography>
                 <Typography variant="body">{el.date.split(' ')[2]} {el.date.split(' ')[3]} {el.date.split(' ')[4] + " "}</Typography>
             </div>
-            <span className="lanuage_item">{el.language}</span>
+            <span className="lanuage_item">{Object.keys(CODE_SNIPPETS)[indexLanguage]}</span>
             <div className="card_btns">
                 <button onClick={()=>handleCopyText(el.code)}>
                     <svg data-testid="geist-icon" fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24" aria-hidden="true" style={{color: "currentcolor", width: "20px", height: "20px"}}><path d="M6 17C4.89543 17 4 16.1046 4 15V5C4 3.89543 4.89543 3 6 3H13C13.7403 3 14.3866 3.4022 14.7324 4M11 21H18C19.1046 21 20 20.1046 20 19V9C20 7.89543 19.1046 7 18 7H11C9.89543 7 9 7.89543 9 9V19C9 20.1046 9.89543 21 11 21Z"></path></svg>

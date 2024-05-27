@@ -1,8 +1,15 @@
-import "./docs.scss"
+'use server'
+import css from "./docs.module.scss"
 
 const Docs = () => {
+
   return (
-    <div>page</div>
+    <section className={css.docs}>
+      <div className={css.container}>
+        <aside></aside>
+        <div className={css.contant}></div>
+      </div>
+    </section>
   )
 }
 

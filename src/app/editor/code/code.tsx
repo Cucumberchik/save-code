@@ -1,19 +1,21 @@
 'use client'
 import { Editor } from "@monaco-editor/react";
-import {useCallback, useState} from "react"
+import { useState} from "react"
 import type { NextPage } from "next";
 import type { ReactElement } from "react";
 import useEditor from "@/zustands/editor";
 import Typography from "@/typography/typogrpahy";
-import { LANGUAGE_VERSIONS } from "@/constants";
+import { CODE_SNIPPETS, LANGUAGE_VERSIONS } from "@/constants";
 
 const CodeEditor:NextPage = ():ReactElement => {
     const [dropdawn, setDropdawn] = useState<string>('disabled')
     const {sourceCode,language, setSourceCode, setLanguage} = useEditor();
 
-    const handleValue = useCallback((value:string)=>{
+    const handleValue = (value:string)=>{
         setSourceCode(value)
-    },[sourceCode, setSourceCode])
+    }
+    const indexLanguage = Object.keys(LANGUAGE_VERSIONS).findIndex((el:string)=>el == language);
+
 
     return (
     <div className="editor_code window_layout">
@@ -22,7 +24,7 @@ const CodeEditor:NextPage = ():ReactElement => {
                 <Typography variant="body">Язык</Typography>
                 <button onClick={()=>setDropdawn('opened')}>
                     <Typography variant="body">
-                        {language}
+                        {Object.keys(CODE_SNIPPETS)[indexLanguage]}
                     </Typography>
                 </button>
                 <div className={"dropdawn dropdawn_language " + dropdawn} onClick={(e)=>e.stopPropagation()} >
@@ -33,7 +35,7 @@ const CodeEditor:NextPage = ():ReactElement => {
                                 setLanguage(el)
                                 }}>
                                     <Typography variant="body">
-                                        {el}
+                                        {Object.keys(CODE_SNIPPETS)[idx]}
                                     </Typography>
                             </li>
                         ))}
