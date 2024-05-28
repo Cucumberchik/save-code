@@ -1,40 +1,18 @@
 'use client'
 import { NextPage } from "next"
 import css from "./docs.module.scss"
-import { ReactNode, useState } from "react"
-import {Introduction} from "./introduction/intro"
-
-
+import { ReactElement, ReactNode, useState } from "react"
+import links from "./LinksInfo"
 
 interface LinkType {
   link: string,
-  page: string
+  page: string,
+  element: ReactElement
 }
 
 const Docs:NextPage = ():ReactNode => {
   const [routing, setRouting] = useState<number>(0);
 
-  const links:LinkType[] = [
-    {
-      link: "Вступление",
-      page: "introduction"
-    },
-    {
-      link: "Редактор кода",
-      page: "editor"
-    },
-    {
-      link: "Заметки",
-      page: "todo"
-    },
-    {
-      link: "Настройки",
-      page: "setting"
-    },
-
-  ]
-
-  
   return (
     <section id="docs" className={css.docs}>
       <div className={css.container}>
@@ -45,12 +23,19 @@ const Docs:NextPage = ():ReactNode => {
                 key={idx} 
                 onClick={()=>setRouting(idx)}
               >
-                {el.link
-              }</button>
+                {el.link}
+              </button>
             ))}
         </nav>
         <div className={css.contant}>
-          
+        <article  className={css.article}>
+          <div className={css.intro}>
+            <h2 className="subtitle_24_600" >
+              {links[routing].link}
+            </h2>
+          </div>
+          {links[routing].element}
+        </article>
         </div>
       </div>
     </section>
@@ -58,3 +43,6 @@ const Docs:NextPage = ():ReactNode => {
 }
 
 export default Docs
+
+
+
