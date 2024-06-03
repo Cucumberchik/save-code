@@ -43,7 +43,7 @@ const Todo:NextPage = ():ReactNode => {
                 {
                     searching ? todo.filter((el)=>el.note.toLowerCase().includes(searching.toLowerCase())).map((el, idx:number)=>(
                         <TodoCard el={el} idx={idx} key={idx} setIdTodo={setIdTodo} />
-                    )) : todo.map((el:ElementType, idx:number)=>(
+                    )) : todo?.map((el:ElementType, idx:number)=>(
                         <TodoCard key={idx} idx={idx} el={el} setIdTodo={setIdTodo} />
                     ))
                 }

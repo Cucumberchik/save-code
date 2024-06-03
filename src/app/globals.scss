@@ -1,8 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap");
 :root {
-  --font-family:  system,-apple-system,".SFNSText-Regular","San Francisco","Segoe UI","Helvetica Neue","Lucida Grande",sans-serif;
+  --font-family: system, -apple-system, ".SFNSText-Regular", "San Francisco",
+    "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
   --blue-100: oklch(22.17% 0.069 259.89);
   --blue-200: oklch(25.45% 0.0811 255.8);
   --blue-300: oklch(30.86% 0.1022 255.21);
@@ -75,41 +76,40 @@
   --pink-800: oklch(59.51% 0.2429 4.21);
   --pink-900: oklch(69.36% 0.2223 3.91);
   --pink-1000: oklch(95.74% 0.0326 350.08);
-  --gray-alpha-100: hsla(0,0%,100%,.06);
-  --gray-alpha-200: hsla(0,0%,100%,.09);
-  --gray-alpha-300: hsla(0,0%,100%,.13);
-  --gray-alpha-400: hsla(0,0%,100%,.14);
-  --gray-alpha-500: hsla(0,0%,100%,.24);
-  --gray-alpha-600: hsla(0,0%,100%,.51);
-  --gray-alpha-700: hsla(0,0%,100%,.54);
-  --gray-alpha-800: hsla(0,0%,100%,.47);
-  --gray-alpha-900: hsla(0,0%,100%,.61);
+  --gray-alpha-100: hsla(0, 0%, 100%, 0.06);
+  --gray-alpha-200: hsla(0, 0%, 100%, 0.09);
+  --gray-alpha-300: hsla(0, 0%, 100%, 0.13);
+  --gray-alpha-400: hsla(0, 0%, 100%, 0.14);
+  --gray-alpha-500: hsla(0, 0%, 100%, 0.24);
+  --gray-alpha-600: hsla(0, 0%, 100%, 0.51);
+  --gray-alpha-700: hsla(0, 0%, 100%, 0.54);
+  --gray-alpha-800: hsla(0, 0%, 100%, 0.47);
+  --gray-alpha-900: hsla(0, 0%, 100%, 0.61);
   --gray-alpha-950: hsla(0, 0%, 93%, 0.92);
-  --gray-alpha-1000: hsla(0,0%,100%,.92);
+  --gray-alpha-1000: hsla(0, 0%, 100%, 0.92);
   --background-100: #0a0a0a;
   --background-300: #151515;
   --background-200: #000;
   --gray-background: #222222;
-  --focus-border: 0 0 0 1px var(--gray-alpha-600),0px 0px 0px 4px hsla(0,0%,100%,.24);
+  --focus-border: 0 0 0 1px var(--gray-alpha-600),
+    0px 0px 0px 4px hsla(0, 0%, 100%, 0.24);
   --focus-color: var(--blue-900);
-  --shadow-border-inset: inset 0 0 0 1px hsla(0,0%,100%,.1);
-  --PhoneInputCountryFlag-borderColor: rgba(0,0,0,.5);
-  
-  --text-gradient: linear-gradient(180deg,#fff,#adadad);
+  --shadow-border-inset: inset 0 0 0 1px hsla(0, 0%, 100%, 0.1);
+  --PhoneInputCountryFlag-borderColor: rgba(0, 0, 0, 0.5);
+
+  --text-gradient: linear-gradient(180deg, #fff, #adadad);
   --container-size: 90%;
 }
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   color-scheme: dark;
   text-rendering: optimizeLegibility;
-  
 }
 
 a {
   text-decoration: none;
-
 }
 .d-f-c {
   display: flex;
@@ -117,11 +117,14 @@ a {
   align-items: center;
 }
 
-a, input, button {
+a,
+input,
+button {
   cursor: pointer;
 }
 
-:host, html {
+:host,
+html {
   text-rendering: optimizeLegibility;
   scroll-padding-top: 64px;
   -webkit-text-size-adjust: 100%;
@@ -130,7 +133,6 @@ a, input, button {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 
 ul {
   list-style: none;
@@ -174,7 +176,6 @@ ul {
   font: 700 20px / 150% var(--font-family);
 }
 
-
 .subtitle_24_600 {
   font: 600 24px / 150% var(--font-family);
 }
@@ -190,7 +191,6 @@ ul {
 .subtitle_12_600 {
   font: 600 12px / 150% var(--font-family);
 }
-
 
 .title_24_500 {
   font: 500 24px / 150% var(--font-family);
@@ -211,7 +211,6 @@ ul {
 .title_12_500 {
   font: 500 12px / 150% var(--font-family);
 }
-
 
 .text_24_400 {
   font: 400 24px / 150% var(--font-family);

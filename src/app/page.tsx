@@ -1,7 +1,7 @@
-'use server'
+"use server";
 import "./app.scss";
 import type { NextPage } from "next";
-import type { ReactNode } from "react"
+import type { ReactNode } from "react";
 import { Shaters } from "@/components/shaters/Shaters";
 import { Present } from "@/components/prenest/present";
 
@@ -13,12 +13,12 @@ const Home: NextPage = (): ReactNode => {
           <div className="info_title">
             <h1>Save-Code: Ваш надёжный хранитель кода</h1>
             <p>
-              Save-Code - это безопасное и удобное хранилище с  <br /> встроенным редактором для вашего
-              кода.
+              Save-Code - это безопасное и удобное хранилище с <br /> встроенным
+              редактором для вашего кода.
             </p>
           </div>
           <div className="editor_code">
-            <Present/>
+            <Present />
           </div>
         </div>
         <div className="color_line_light">

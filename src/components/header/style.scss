@@ -1,248 +1,236 @@
 header {
-    width: 100%;
-    height: 45px;
-    border-bottom: 0.5px solid var(--gray-alpha-500);
-    background: var(--background-100);
-    *{
-        font-family: var(--font-family);
+  width: 100%;
+  height: 45px;
+  border-bottom: 0.5px solid var(--gray-alpha-500);
+  background: var(--background-100);
+  * {
+    font-family: var(--font-family);
+  }
+
+  .container {
+    width: var(--container-size);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .header_nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    a {
+      color: var(--gray-alpha-1000);
     }
 
-    .container {
-        width: var(--container-size);
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+    .link_navigation {
+      transition: 0.15s;
+      color: var(--gray-alpha-900);
+
+      &:hover {
+        color: var(--gray-alpha-1000);
+      }
     }
+  }
 
-    .header_nav {
-        display: flex;
-        align-items: center;
-        gap: 20px;
+  .user_info:hover {
+    background: var(--gray-alpha-200);
+  }
 
-        a {
-            color: var(--gray-alpha-1000);
-        }
+  .authentification {
+    display: flex;
+    align-items: center;
+    gap: 30px;
 
-        .link_navigation {
-            transition: 0.15s;
-            color: var(--gray-alpha-900);
-
-            &:hover {
-                color: var(--gray-alpha-1000);
-            }
-        }
+    button {
+      padding: 4px 18px;
+      border-radius: 6px;
+      border: none;
+      transition: 0.15s;
     }
+  }
 
-    .user_info:hover {
-        background: var(--gray-alpha-200);
-    }
-
-    .authentification {
-        display: flex;
-        align-items: center;
-        gap: 30px;
-    
-        button {
-            padding: 4px 18px;
-            border-radius: 6px;
-            border: none;
-            transition: .15s;
-        }
-    }
-
-    .signin{
-        background: transparent;
-        border: 1px solid var(--gray-alpha-500);
-    }
+  .signin {
+    background: transparent;
+    border: 1px solid var(--gray-alpha-500);
+  }
 }
-
 
 header .signin:hover {
-    background: var(--gray-alpha-200);
+  background: var(--gray-alpha-200);
 }
 
-header .login{
-    background: var(--gray-alpha-1000);
-    color: var(--background-100)
+header .login {
+  background: var(--gray-alpha-1000);
+  color: var(--background-100);
 }
 header .login:hover {
-    background: var(--gray-alpha-950);
+  background: var(--gray-alpha-950);
 }
-header .user_navigation{
-    position: relative;
-    display: flex;
-    
-    img {
-        width: 35px;
-        height: 35px;
-        border-radius: 50%;
-    }
+header .user_navigation {
+  position: relative;
+  display: flex;
+
+  img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+  }
 }
 header .user_info {
-    padding: 4px 20px;
+  padding: 4px 20px;
+  display: flex;
+  align-items: center;
+  background: transparent;
+  border: none;
+  gap: 10px;
+}
+.dropdawn {
+  display: block;
+  z-index: 20;
+  min-width: 200px;
+  padding: 10px 0;
+  border-radius: 10px;
+  background-color: var(--background-300);
+  border: 1px solid var(--gray-alpha-400);
+  ul {
     display: flex;
+    flex: 1;
+    flex-direction: column;
+    width: 100%;
+  }
+  li {
+    transition: 0.14s;
+    width: 100%;
+    padding: 8px 12px;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--gray-alpha-900);
+    a {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--gray-alpha-900);
+    }
+  }
+  li:hover {
+    background: var(--gray-alpha-200);
+    color: var(--gray-alpha-1000);
+    a {
+      color: var(--gray-alpha-1000);
+    }
+  }
+  button {
+    padding: 8px 12px;
+    display: flex;
+    gap: 8px;
     align-items: center;
     background: transparent;
     border: none;
-    gap: 10px;
-}
-.dropdawn {
-    display: block;
-    z-index: 20;
-    min-width: 200px;
-    padding: 10px 0;
-    border-radius: 10px;
-    background-color: var(--background-300);
-    border: 1px solid var(--gray-alpha-400);
-    ul {
-        display: flex;
-        flex: 1;
-        flex-direction: column;
-        width: 100%;
-    }
-    li {
-        transition: .14s;
-        width: 100%;
-        padding: 8px 12px;
-        background: transparent;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        color: var(--gray-alpha-900);
-        a {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            color: var(--gray-alpha-900);
+    color: var(--gray-alpha-900);
+  }
 
-        }
-        
-    }
-    li:hover {
-        background: var(--gray-alpha-200);
-        color: var(--gray-alpha-1000);
-        a {
-        color: var(--gray-alpha-1000);
-
-        }
-    }
-    button {
-        padding: 8px 12px;
-        display: flex;
-        gap: 8px;
-        align-items: center;
-        background: transparent;
-        border: none;
-        color: var(--gray-alpha-900);
-    }
-    
-    button:hover {
-        background: var(--gray-alpha-200);
-        color: var(--red-850);
-    }
+  button:hover {
+    background: var(--gray-alpha-200);
+    color: var(--red-850);
+  }
 }
 .dropdawn_header {
-    position: absolute;
-    right: 0;
-    
+  position: absolute;
+  right: 0;
 }
 .dropdawn_header.disabled {
-    display: none;
+  display: none;
 }
 
 .dropdawn_header.open {
-    display: block;
-    animation: openDropdawn 0.3s ease-in-out forwards;
+  display: block;
+  animation: openDropdawn 0.3s ease-in-out forwards;
 }
 
 .dropdawn_header.close {
-    animation: closeDropdawn 0.3s ease-in-out forwards;
+  animation: closeDropdawn 0.3s ease-in-out forwards;
 }
 .dropdawn_add_todo {
-    position: absolute;
-    left: 0;
-    top: 50px;
+  position: absolute;
+  left: 0;
+  top: 50px;
 }
 
 .dropdawn_add_todo.disabled {
-    display: none;
+  display: none;
 }
 
 .dropdawn_add_todo.open {
-    display: block;
-    animation: openDropdawnLanguage 0.3s ease-in-out forwards;
+  display: block;
+  animation: openDropdawnLanguage 0.3s ease-in-out forwards;
 }
 
 .dropdawn_add_todo.close {
-    animation: closeDropdawnLanguage 0.3s ease-in-out forwards;
+  animation: closeDropdawnLanguage 0.3s ease-in-out forwards;
 }
 
-
 @keyframes openDropdawn {
-    from {
-        opacity: 0;
-        margin-top: 10px;
-        transform: translateY(-10px);
-        display: none;
-    }
-    to {
-        opacity: 1;
-        margin-top: 50px;
-        transform: translateY(0);
-        display: block;
-    }
+  from {
+    opacity: 0;
+    margin-top: 10px;
+    transform: translateY(-10px);
+    display: none;
+  }
+  to {
+    opacity: 1;
+    margin-top: 50px;
+    transform: translateY(0);
+    display: block;
+  }
 }
 
 @keyframes closeDropdawn {
-    from {
-        opacity: 1;
-        margin-top: 45px;
-        transform: translateY(0);
-        display: block;
+  from {
+    opacity: 1;
+    margin-top: 45px;
+    transform: translateY(0);
+    display: block;
+  }
+  to {
+    opacity: 0;
+    /* margin-top: 10px; */
 
-    }
-    to {
-        opacity: 0;
-        /* margin-top: 10px; */
-        
-        transform: translateY(-10px);
-        display: none;
-
-    }
+    transform: translateY(-10px);
+    display: none;
+  }
 }
 
 @keyframes openDropdawnLanguage {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-        display: none;
-        margin-top: 10px;
-
-    }
-    to {
-        opacity: 1;
-        margin-top: 3px;
-        transform: translateY(0);
-        display: block;
-    }
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+    display: none;
+    margin-top: 10px;
+  }
+  to {
+    opacity: 1;
+    margin-top: 3px;
+    transform: translateY(0);
+    display: block;
+  }
 }
 
 @keyframes closeDropdawnLanguage {
-    from {
-        opacity: 1;
-        transform: translateY(0);
-        margin-top: 5px;
-        display: block;
+  from {
+    opacity: 1;
+    transform: translateY(0);
+    margin-top: 5px;
+    display: block;
+  }
+  to {
+    opacity: 0;
+    margin-top: 10px;
 
-    }
-    to {
-        opacity: 0;
-        margin-top: 10px;
-
-        transform: translateY(-10px);
-        display: none;
-
-    }
+    transform: translateY(-10px);
+    display: none;
+  }
 }
-

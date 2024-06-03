@@ -1,229 +1,220 @@
 #todo {
-    width: 100%;
-    /* height: 100vh; */
-    
-    .container {
-        width: var(--container-size);
-        height: 100%;
-        display: flex;
-        flex-direction:column;
-        align-items: center;
-        gap: 22px;
-    }
-    .info_todo {
-        width: 80%;
-        height: 50px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        .searching {
-            width: 80%;
-            border: 1px solid var(--gray-alpha-500);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 5px;
-            border-radius: 5px;
-            input {
-                width: 100%;
-                height: 35px;
-                padding: 0 10px;
-                border: none;
-                background: none;
-                outline: none;
-            }
-        }
-        button {
-            padding: 6px 35px;
-            background: var(--gray-alpha-1000);
-            color: black;
-            border-radius: 5px;
-            border: none;
-            &:hover {
-                background: var(--gray-alpha-950);
-            }
-        }
-    }
-    
-    .mtk8 {
-        color: #F75F8F;
-    }
+  width: 100%;
+  /* height: 100vh; */
 
-    .mtk22 {
-        color: #BF7AF0;
+  .container {
+    width: var(--container-size);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+  }
+  .info_todo {
+    width: 80%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .searching {
+      width: 80%;
+      border: 1px solid var(--gray-alpha-500);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5px;
+      border-radius: 5px;
+      input {
+        width: 100%;
+        height: 35px;
+        padding: 0 10px;
+        border: none;
+        background: none;
+        outline: none;
+      }
     }
+    button {
+      padding: 6px 35px;
+      background: var(--gray-alpha-1000);
+      color: black;
+      border-radius: 5px;
+      border: none;
+      &:hover {
+        background: var(--gray-alpha-950);
+      }
+    }
+  }
 
-    .mtk9.bracket-highlighting-0{
-        color: #EDEDED;
-    }
+  .mtk8 {
+    color: #f75f8f;
+  }
 
-    .monaco-editor {
-        overflow: scroll;
-        .monaco_diff_editor {
-            --vscode-editor-background: transparent;
-            --vscode-editorGutter-background: transparent;
-        }
-        .monaco-editor-background, .margin {
-            background-color: #101010;
-        }
-    }
+  .mtk22 {
+    color: #bf7af0;
+  }
 
-    .view-line {
-        span {
-            /* font-size: 15px; */
-            font-weight: 450;
-        }
-    
+  .mtk9.bracket-highlighting-0 {
+    color: #ededed;
+  }
+
+  .monaco-editor {
+    overflow: scroll;
+    .monaco_diff_editor {
+      --vscode-editor-background: transparent;
+      --vscode-editorGutter-background: transparent;
     }
+    .monaco-editor-background,
+    .margin {
+      background-color: #101010;
+    }
+  }
+
+  .view-line {
+    span {
+      /* font-size: 15px; */
+      font-weight: 450;
+    }
+  }
 }
 
 .info_save_code {
-    position: relative;
-    z-index: 20;
-    border-radius: 8px;
-    width: 100%;
-    height: 60px;
-    padding: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  position: relative;
+  z-index: 20;
+  border-radius: 8px;
+  width: 100%;
+  height: 60px;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-    .change_language {
-        background-color: var(--background-300);
-        border: 1px solid var(--gray-alpha-400);
-        padding: 8px 15px;
-        border-radius: 6px;
-    }
-    input {
-        transition: .15s;
-        width: 70%;
-        height: 38px;
-        padding: 5px 10px;
-        background-color: var(--background-300);
-        border: 1px solid var(--gray-alpha-400);
-        border-radius: 6px;
-        outline: none;
+  .change_language {
+    background-color: var(--background-300);
+    border: 1px solid var(--gray-alpha-400);
+    padding: 8px 15px;
+    border-radius: 6px;
+  }
+  input {
+    transition: 0.15s;
+    width: 70%;
+    height: 38px;
+    padding: 5px 10px;
+    background-color: var(--background-300);
+    border: 1px solid var(--gray-alpha-400);
+    border-radius: 6px;
+    outline: none;
 
-        &:focus {
-        border: 1px solid var(--gray-alpha-600);
-
-        }
+    &:focus {
+      border: 1px solid var(--gray-alpha-600);
     }
-    button {
-        padding: 3px 12px;
-        border-radius: 5px;
+  }
+  button {
+    padding: 3px 12px;
+    border-radius: 5px;
+  }
+  .save_btn {
+    background: var(--gray-alpha-1000);
+    color: black;
+    border: none;
+    &:hover {
+      background: var(--gray-alpha-950);
     }
-    .save_btn {
-        
-        background: var(--gray-alpha-1000);
-        color: black;
-        border: none;
-        &:hover {
-            background: var(--gray-alpha-950);
-        }
-    }
-    .close_btn {
-        background-color: var(--background-300);
-        border: 1px solid var(--gray-alpha-400);
-    }
+  }
+  .close_btn {
+    background-color: var(--background-300);
+    border: 1px solid var(--gray-alpha-400);
+  }
 }
 
-
-
 .todo_item {
-    --border-color: var(--gray-alpha-400);
-    &:hover{
-        --border-color: var(--gray-alpha-500);   
-    
+  --border-color: var(--gray-alpha-400);
+  &:hover {
+    --border-color: var(--gray-alpha-500);
+  }
+  transition: 0.15s;
+  width: 80%;
+  border: 1.4px solid var(--border-color);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  cursor: pointer;
+  .code_block {
+    position: relative;
+    width: 100%;
+    canvas {
+      display: none;
     }
-    transition: .15s;
-    width: 80%;
-    border: 1.4px solid var(--border-color);
-    border-radius: 10px;
+  }
+
+  .item_title {
+    width: 100%;
+    padding: 5px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--gray-alpha-100);
+    border-bottom: 1px solid var(--border-color);
+    button {
+      display: flex;
+      align-items: center;
+      padding: 5px 5px;
+      background: transparent;
+      border-radius: 6px;
+      transition: transform 0.2s ease;
+      border: 1.6px solid var(--gray-alpha-500);
+      &:hover {
+        background: var(--gray-alpha-100);
+      }
+      &:active {
+        transform: scale(0.9);
+      }
+    }
+  }
+  .monaco-editor .view-line:focus {
+    outline: none;
+    border: none;
+  }
+  .name_todo {
+    display: flex;
+    flex-direction: column;
+  }
+  .lanuage_item {
+    border: 1.4px solid var(--gray-alpha-500);
+    border-radius: 4px;
+    padding: 3px 8px;
+    font-family: var(--font-family);
+  }
+  .card_btns {
     display: flex;
     align-items: center;
-    flex-direction: column;
+    gap: 10px;
+  }
+  .action_btn {
+    display: flex;
     justify-content: space-between;
-    gap: 20px;
-    cursor: pointer;
-    .code_block {
-        position: relative;
-        width: 100%;
-        canvas {
-            display: none;
-        }
+    gap: 5px;
+    padding: 7px 20px;
+    width: 100%;
+    border-top: 1px solid var(--border-color);
+    button {
+      padding: 5px 10px;
+      border-radius: 5px;
     }
-
-    .item_title{
-        width: 100%;
-        padding: 5px 30px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background: var(--gray-alpha-100);
-        border-bottom: 1px solid var(--border-color);
-        button {
-            display: flex;
-            align-items: center;
-            padding: 5px 5px;
-            background: transparent;
-            border-radius: 6px;
-            transition: transform 0.2s ease; 
-            border: 1.6px solid var(--gray-alpha-500);
-            &:hover {
-                background: var(--gray-alpha-100);
-
-            }
-            &:active {
-                transform: scale(0.9); 
-
-            }
-        }
+    .open_btn {
+      background: var(--gray-alpha-1000);
+      color: var(--background-100);
+      border: none;
+      &:hover {
+        background: var(--gray-alpha-950);
+      }
     }
-    .monaco-editor .view-line:focus {
-        outline: none;
-        border: none;
+    .delete_btn {
+      background: none;
+      border: 1.2px solid var(--red-600);
+      color: var(--red-900);
     }
-    .name_todo {
-            display: flex;
-            flex-direction: column;
-    }
-    .lanuage_item {
-            border: 1.4px solid var(--gray-alpha-500);
-            border-radius: 4px;
-            padding: 3px 8px;
-            font-family: var(--font-family);
-    }
-    .card_btns {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-    .action_btn {
-            display: flex;
-            justify-content: space-between;
-            gap: 5px;
-            padding: 7px 20px;
-            width: 100%;
-            border-top: 1px solid var(--border-color);
-            button {
-                padding: 5px 10px;
-                border-radius: 5px;
-
-            }
-            .open_btn {
-                background: var(--gray-alpha-1000);
-                color: var(--background-100);
-                border: none;
-                &:hover {
-                    background: var(--gray-alpha-950);
-                }
-            }
-            .delete_btn {
-                background: none;
-                border: 1.2px solid var(--red-600);
-                color: var(--red-900);
-            }
-    }
-    
+  }
 }

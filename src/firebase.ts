@@ -8,10 +8,10 @@ const firebaseConfig = {
   projectId: "code-editor-net",
   storageBucket: "code-editor-net.appspot.com",
   messagingSenderId: "455489153944",
-  appId: "1:455489153944:web:9ef89a9f633310fd3859ed"
+  appId: "1:455489153944:web:9ef89a9f633310fd3859ed",
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-export const auth = getAuth(app)
+export const auth = getAuth(app);

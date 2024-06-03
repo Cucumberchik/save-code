@@ -1,4 +1,3 @@
-
 interface ProvidersType {
-    children:ReactNode
+  children: ReactNode;
 }

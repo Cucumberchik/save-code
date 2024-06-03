@@ -1,248 +1,252 @@
 .home {
-    position: relative;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 90vh;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  p {
+    font-family: var(--font-family);
+  }
+
+  .container {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: var(--container-size);
+  }
+
+  .info {
     width: 100%;
-    height: 90vh;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-    h1, h2, h3, h4, h5, p {
-        font-family: var(--font-family);
+    h1 {
+      background: var(--text-gradient);
+      background-clip: text;
+      color: transparent;
+      font-weight: 800;
+      font-size: max(10px, min(4vw, 86px));
+      letter-spacing: -0.05em;
+      padding: 2px;
+      position: relative;
     }
-
-
-    .container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: var(--container-size);
+    p {
+      font-size: 23px;
+      font-weight: 500;
+      color: var(--gray-alpha-950);
     }
+    .editor_code {
+      width: 40%;
+      height: 45%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #101010;
+      border-radius: 10px;
+      border: 1px solid var(--gray-alpha-500);
 
-    .info {
-        width: 100%;
-        height: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    
-        h1 {
-            background: var(--text-gradient);
-            background-clip: text;
-            color: transparent;
-            font-weight: 800;
-            font-size: max(10px,min(4vw,86px));
-            letter-spacing: -.05em;
-            padding: 2px;
-            position: relative;
+      .mtk8 {
+        color: #f75f8f;
+      }
+
+      .mtk22 {
+        color: #bf7af0;
+      }
+
+      .mtk9.bracket-highlighting-0 {
+        color: #ededed;
+      }
+
+      .monaco-editor {
+        overflow: scroll;
+        .monaco_diff_editor {
+          --vscode-editor-background: transparent;
+          --vscode-editorGutter-background: transparent;
         }
-        p {
-            font-size: 23px;
-            font-weight: 500;
-            color: var(--gray-alpha-950);
+        .monaco-editor-background,
+        .margin {
+          background-color: #101010;
         }
-        .editor_code {
-            width: 40%;
-            height: 45%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #101010;
-            border-radius: 10px;
-            border: 1px solid var(--gray-alpha-500);
+      }
 
-
-            .mtk8 {
-                color: #F75F8F;
-            }
-        
-            .mtk22 {
-                color: #BF7AF0;
-            }
-        
-            .mtk9.bracket-highlighting-0{
-                color: #EDEDED;
-            }
-        
-            .monaco-editor {
-                overflow: scroll;
-                .monaco_diff_editor {
-                    --vscode-editor-background: transparent;
-                    --vscode-editorGutter-background: transparent;
-                }
-                .monaco-editor-background, .margin {
-                    background-color: #101010;
-                }
-            }
-        
-            .view-line {
-                span {
-                    /* font-size: 15px; */
-                    font-weight: 480;
-                }
-            
-            }
+      .view-line {
+        span {
+          /* font-size: 15px; */
+          font-weight: 480;
         }
-    }
-
-    .color_line_light {
-        position: absolute;
-        z-index: -1;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 90vh;
-        display: flex;
-        justify-content: center;
-        overflow: hidden;
-
-        img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 190%;
-        }
-
-        .redial_accent {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 90vh;
-            background: radial-gradient(transparent, #000000);
-        }
-    }
-
-    .links_services {
-        width: 70%;
-        display: flex;
-        justify-content: space-between;
-        margin-top: 50px;
-        
-        a{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            width: 250px;
-            height: 80px;
-            border-radius: 15px;
-            border: 1px solid var(--gray-alpha-500);
-            transition: 0.15s;
-            color: var(--gray-alpha-950);
-            font-size: 20px;
-        }
-        a:hover {
-            border: 1px solid var(--gray-alpha-600);
-        }
-    }
-    .editor_info {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        h2 {
-            font-size: 38px;
-            background: var(--text-gradient);
-            color: transparent;
-            background-clip: text;
-        }
-    }
-    .editor_info_languages {
-        width: 90%;
-        max-width: 1536px;
-        margin-inline: auto;
-        position: relative;
-        height: 100px;
-        margin-top: 5rem;
-        overflow: hidden;
-        mask-image: linear-gradient( to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0));
-
-    }    
-
-    .shater {
-        width: 210px;
-        height: 80px;
-        background: #35353550;
-        backdrop-filter: blur(40px);
-        border-radius: 8px;
-        display: flex;
-        align-items: center;
-        padding: 30px 30px;
-        gap: 20px;
-        border: 1px solid var(--gray-alpha-300);
-        position: absolute;
-        left: max(calc(330px * 8), 100%);
-        animation-name: scrollLeft;
-        animation-duration: 30s;
-        animation-timing-function: linear;
-        animation-iteration-count: infinite;
-
-        img {
-            width: 40px;
-            height: 40px;
-        }
-
-    }
-
-    .shater_1 {
-        animation-delay: calc(30s / 13 * (13 - 1) * -1);
-    }
-          
-    .shater_2 {
-        animation-delay: calc(30s / 13 * (13 - 2) * -1);
-    }
-          
-    .shater_3 {
-        animation-delay: calc(30s / 13 * (13 - 3) * -1);
-    }
-          
-    .shater_4 {
-        animation-delay: calc(30s / 13 * (13 - 4) * -1);
-    }
-          
-    .shater_5 {
-        animation-delay: calc(30s / 13 * (13 - 5) * -1);
-    }
-          
-    .shater_6 {
-        animation-delay: calc(30s / 13 * (13 - 6) * -1);
-    }
-
-    .shater_7 {
-        animation-delay: calc(30s / 13 * (13 - 7) * -1);
-    }
-
-    .shater_8 {
-        animation-delay: calc(30s / 13 * (13 - 8) * -1);
-    }
-
-    .shater_9 {
-        animation-delay: calc(30s / 13 * (13 - 9) * -1);
-    }
-
-    .shater_10 {
-        animation-delay: calc(30s / 13 * (13 - 10) * -1);
-    }
-
-    .shater_11 {
-        animation-delay: calc(30s / 13 * (13 - 11) * -1);
-    }
-
-    .shater_12 {
-        animation-delay: calc(30s / 13 * (13 - 12) * -1);
-    }
-
-    .shater_13 {
-        animation-delay: calc(30s / 13 * (13 - 13) * -1);
-    }
-}
-
-
-
-@keyframes scrollLeft {
-    to {
-      left: -200px;
+      }
     }
   }
 
+  .color_line_light {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 190%;
+    }
+
+    .redial_accent {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 90vh;
+      background: radial-gradient(transparent, #000000);
+    }
+  }
+
+  .links_services {
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      width: 250px;
+      height: 80px;
+      border-radius: 15px;
+      border: 1px solid var(--gray-alpha-500);
+      transition: 0.15s;
+      color: var(--gray-alpha-950);
+      font-size: 20px;
+    }
+    a:hover {
+      border: 1px solid var(--gray-alpha-600);
+    }
+  }
+  .editor_info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h2 {
+      font-size: 38px;
+      background: var(--text-gradient);
+      color: transparent;
+      background-clip: text;
+    }
+  }
+  .editor_info_languages {
+    width: 90%;
+    max-width: 1536px;
+    margin-inline: auto;
+    position: relative;
+    height: 100px;
+    margin-top: 5rem;
+    overflow: hidden;
+    mask-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 1) 20%,
+      rgba(0, 0, 0, 1) 80%,
+      rgba(0, 0, 0, 0)
+    );
+  }
+
+  .shater {
+    width: 210px;
+    height: 80px;
+    background: #35353550;
+    backdrop-filter: blur(40px);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    padding: 30px 30px;
+    gap: 20px;
+    border: 1px solid var(--gray-alpha-300);
+    position: absolute;
+    left: max(calc(330px * 8), 100%);
+    animation-name: scrollLeft;
+    animation-duration: 30s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+    img {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  .shater_1 {
+    animation-delay: calc(30s / 13 * (13 - 1) * -1);
+  }
+
+  .shater_2 {
+    animation-delay: calc(30s / 13 * (13 - 2) * -1);
+  }
+
+  .shater_3 {
+    animation-delay: calc(30s / 13 * (13 - 3) * -1);
+  }
+
+  .shater_4 {
+    animation-delay: calc(30s / 13 * (13 - 4) * -1);
+  }
+
+  .shater_5 {
+    animation-delay: calc(30s / 13 * (13 - 5) * -1);
+  }
+
+  .shater_6 {
+    animation-delay: calc(30s / 13 * (13 - 6) * -1);
+  }
+
+  .shater_7 {
+    animation-delay: calc(30s / 13 * (13 - 7) * -1);
+  }
+
+  .shater_8 {
+    animation-delay: calc(30s / 13 * (13 - 8) * -1);
+  }
+
+  .shater_9 {
+    animation-delay: calc(30s / 13 * (13 - 9) * -1);
+  }
+
+  .shater_10 {
+    animation-delay: calc(30s / 13 * (13 - 10) * -1);
+  }
+
+  .shater_11 {
+    animation-delay: calc(30s / 13 * (13 - 11) * -1);
+  }
+
+  .shater_12 {
+    animation-delay: calc(30s / 13 * (13 - 12) * -1);
+  }
+
+  .shater_13 {
+    animation-delay: calc(30s / 13 * (13 - 13) * -1);
+  }
+}
+
+@keyframes scrollLeft {
+  to {
+    left: -200px;
+  }
+}
